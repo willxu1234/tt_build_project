@@ -10,6 +10,18 @@ PIXEL_COUNT = 160
 PIXEL_ROW = 10
 PIXEL_COL = 8
 
+# Color constants.
+DARK_RED = Adafruit_WS2801.RGB_to_color(128, 0, 0)
+YELLOW = Adafruit_WS2801.RGB_to_color(255, 84, 3)
+
+# Dimensions of a letter.
+LETTER_HEIGHT = 7
+LETTER_WIDTH = 3
+TOP_MARGIN = 2
+BOT_MARGIN = 1
+SPACE = 1
+FULL_LETTER = 2 * SPACE + LETTER_WIDTH
+
 # Contains all the pixel values. Sets all values to red by default.
 # back contains every other column of 10.
 front = [[] for r in range(PIXEL_ROW)]
@@ -43,16 +55,65 @@ def mat_to_pixel(row, col, back):
 	return pix
 
 # Takes the values in front and back and draws it to the LEDs.
-def draw_matrices(pixels):
+# start indicates the starting index of the sliding window used to draw front
+def draw_matrices(pixels, start=0):
 	# Contains the pixel index.
 	pix = 0
+
+	if start + PIXEL_COL >= len(front[0]):
+		print "Start index is out of bounds."
+		return
+
 	pixels.clear()
 	for row in range(PIXEL_ROW):
 		for col in range(PIXEL_COL):
 			pixels.set_pixel(mat_to_pixel(row, col, True), back[row][col])
+	for row in range(PIXEL_ROW):
+		for col in range(start, PIXEL_COL + start):
 			pixels.set_pixel(mat_to_pixel(row, col, False), front[row][col])
 	pixels.show()	
 
+# Draws the message in message_color with a background color. 
+# TODO: make it scroll
+def draw_message(pixels, message, message_color, background_color):
+	message_col_count = FULL_LETTER * len(message)
+	if PIXEL_COL < message_col_count:
+		# Reallocate front so it fits the new matrix size.
+		front = [[] for r in range(PIXEL_ROW)]
+		for row in front:
+			for c in range(message_col_count):
+				row.append(background_color)
+
+	print message_col_count
+
+	for start in range(len(message)):
+		print start * FULL_LETTER
+		if message[start] == 'R':
+			# Add a SPACE to have an initial buffer.
+			draw_R(start * FULL_LETTER, message_color)
+		elif message[start] == ' ':
+			# Draw a full space.
+			pass
+		else:
+			print("Unable to draw that letter.")
+			pass
+
+	#TODO: Create a loop that shifts everything over.
+	draw_matrices(pixels)
+
+# Assumes that the height is 7. Adds the word to the matrix at start.
+def draw_R(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	front[2][start + 2] = color
+	front[5][start + 2] = color
+
+	front[2][start + 3] = color
+	front[3][start + 3] = color
+	front[4][start + 3] = color
+	for row in range(6, 9):
+		front[row][start + 3] = color
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
@@ -67,6 +128,4 @@ if __name__ == "__main__":
 	pixels.clear()
 	one_side(pixels)
 	time.sleep(3)
-	front[8][4] = Adafruit_WS2801.RGB_to_color(0, 255, 0)
-	back[8][4] = Adafruit_WS2801.RGB_to_color(0, 255, 0)
-	draw_matrices(pixels)
+	draw_message(pixels, 'RRR', DARK_RED, YELLOW)
