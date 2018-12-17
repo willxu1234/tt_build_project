@@ -77,17 +77,16 @@ def draw_matrices(pixels, start=0):
 # TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color):
 	message_col_count = FULL_LETTER * len(message)
+	global front
 	if PIXEL_COL < message_col_count:
+		del front[:]
 		# Reallocate front so it fits the new matrix size.
 		front = [[] for r in range(PIXEL_ROW)]
 		for row in front:
 			for c in range(message_col_count):
 				row.append(background_color)
 
-	print message_col_count
-
 	for start in range(len(message)):
-		print start * FULL_LETTER
 		if message[start] == 'R':
 			# Add a SPACE to have an initial buffer.
 			draw_R(start * FULL_LETTER, message_color)
