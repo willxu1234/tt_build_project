@@ -60,7 +60,7 @@ def draw_matrices(pixels, start=0):
 	# Contains the pixel index.
 	pix = 0
 
-	if start + PIXEL_COL >= len(front[0]):
+	if start + PIXEL_COL > len(front[0]):
 		print "Start index is out of bounds."
 		return
 
@@ -75,7 +75,7 @@ def draw_matrices(pixels, start=0):
 
 # Scrolls across all of front with time wait in between renders.
 def draw_scrolling(pixels, wait=0.5):
-	for start in range(len(front[0]) - FULL_LETTER - 1):
+	for start in range(len(front[0]) - FULL_LETTER):
 		draw_matrices(pixels, start)
 		time.sleep(wait)
 
@@ -89,14 +89,20 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 		# Reallocate front so it fits the new matrix size.
 		front = [[] for r in range(PIXEL_ROW)]
 		for row in front:
-			for c in range(message_col_count):
+			for c in range(message_col_count + 2 * PIXEL_COL):
 				row.append(background_color)
 
-	for start in range(len(message)):
-		if message[start] == 'R':
-			# Add a SPACE to have an initial buffer.
+	for start in range(1, len(message) + 1):
+		letter = message[start - 1]
+		if letter == 'R':
 			draw_R(start * FULL_LETTER, message_color)
-		elif message[start] == ' ':
+		elif letter == 'U':
+			draw_U(start * FULL_LETTER, message_color)
+		elif letter == 'S':	
+			draw_S(start * FULL_LETTER, message_color)
+		elif letter == 'H':
+			draw_H(start * FULL_LETTER, message_color)
+		elif letter == ' ':
 			# Draw a full space.
 			pass
 		else:
@@ -126,6 +132,35 @@ def draw_R(start, color):
 		front[row][start + 5] = color
 	front[8][start + 5] = color
 
+def draw_U(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	for col in range(start + 2, start + 5):
+		front[8][col] = color
+
+def draw_S(start, color):
+	for row in range(2, 5):
+		front[row][start + 1] = color
+	front[8][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[2][col] = color
+		front[5][col] = color
+		front[8][col] = color
+
+	for row in range(6, 9):
+		front[row][start + 5] = color
+
+def draw_H(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+	
+	for col in range(start + 2, start + 5):
+		front[5][col] = color
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
@@ -140,4 +175,4 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RRR', DARK_RED, YELLOW, 0.1)
+		draw_message(pixels, 'RUSH', DARK_RED, YELLOW, 0.1)
