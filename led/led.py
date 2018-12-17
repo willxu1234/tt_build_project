@@ -17,7 +17,7 @@ pixels = Adafruit_WS2801.WS2801Pixels(PIXEL_COUNT, spi=SPI.SpiDev(SPI_PORT, SPI_
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
-		if i % 20 <= 10:
+		if i % 20 < 10:
 			pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color(255, 0, 0))
 		else:
 			pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color(0, 255, 0))
