@@ -70,12 +70,18 @@ def draw_matrices(pixels, start=0):
 			pixels.set_pixel(mat_to_pixel(row, col, True), back[row][col])
 	for row in range(PIXEL_ROW):
 		for col in range(start, PIXEL_COL + start):
-			pixels.set_pixel(mat_to_pixel(row, col, False), front[row][col])
+			pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
 	pixels.show()	
+
+# Scrolls across all of front with time wait in between renders.
+def draw_scrolling(pixels, wait=0.5):
+	for start in range(len(front[0]) - FULL_LETTER - 1):
+		draw_matrices(pixels, start)
+		time.sleep(wait)
 
 # Draws the message in message_color with a background color. 
 # TODO: make it scroll
-def draw_message(pixels, message, message_color, background_color):
+def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	message_col_count = FULL_LETTER * len(message)
 	global front
 	if PIXEL_COL < message_col_count:
@@ -98,7 +104,7 @@ def draw_message(pixels, message, message_color, background_color):
 			pass
 
 	#TODO: Create a loop that shifts everything over.
-	draw_matrices(pixels)
+	draw_scrolling(pixels, wait)
 
 # Assumes that the height is 7 and width of each letter is 5. Adds the word to the matrix at start.
 def draw_R(start, color):
@@ -133,4 +139,5 @@ if __name__ == "__main__":
 	pixels.clear()
 	one_side(pixels)
 	time.sleep(0.5)
-	draw_message(pixels, 'RRR', DARK_RED, YELLOW)
+	while True:
+		draw_message(pixels, 'RRR', DARK_RED, YELLOW, 0.1)
