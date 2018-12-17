@@ -76,24 +76,31 @@ def draw_matrices(pixels, start=0):
 # Draws the message in message_color with a background color. 
 # TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color):
-	message_col_count = FULL_LETTER * len(message)
 	global front
-	if PIXEL_COL < message_col_count:
+
+        if message == "theta"
+            draw_theta( 0, message_color );
+        elif message == "tau":
+            draw_tau( 0, message_color );
+        else: # Actual message
+            `
+	    message_col_count = FULL_LETTER * len(message)
+	    if PIXEL_COL < message_col_count:
 		del front[:]
 		# Reallocate front so it fits the new matrix size.
 		front = [[] for r in range(PIXEL_ROW)]
 		for row in front:
 			for c in range(message_col_count):
 				row.append(background_color)
-
-	for start in range(len(message)):
-		if message[start] == 'R':
+            
+	        for currLetter in range(len(message)):
+		    if message[currLetter] == 'R':
 			# Add a SPACE to have an initial buffer.
-			draw_R(start * FULL_LETTER, message_color)
-		elif message[start] == ' ':
+			draw_R(currLetter * FULL_LETTER, message_color)
+		    elif message[currLetter] == ' ':
 			# Draw a full space.
 			pass
-		else:
+	            else:
 			print("Unable to draw that letter.")
 			pass
 
@@ -120,6 +127,39 @@ def draw_R(start, color):
 		front[row][start + 5] = color
 	front[8][start + 5] = color
 
+def draw_theta(start, color):
+        # column 1
+        for row in range(1, 8):
+            front[row][start + 1]
+        
+        # column 2 to 5
+        for buf in range(2, 6)
+            front[1][start + buf]
+            front[5][start + buf]
+            front[8][start + buf]
+
+        # column 6
+        for row in range(1, 8):
+            front[row][start + 6]
+
+def draw_tau(start, color):
+        # column 1
+        front[1][start + 1]
+        front[2][start + 1]
+
+        # top horizontal
+        for buf in range(2, 8)
+            front[1][start + buf]
+
+        # column 7
+        front[1][start + 7]
+        front[2][start + 7]
+
+        # middle stem
+        for row in range(2, 9)
+            front[row][4]
+
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
@@ -134,3 +174,5 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	draw_message(pixels, 'RRR', DARK_RED, YELLOW)
+        draw_message(pixels, 'theta', DARK_RED, YELLOW)
+        draw_message(pixels, 'tau', DARK_RED, YELLOW)
