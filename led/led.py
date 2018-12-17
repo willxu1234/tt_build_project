@@ -16,7 +16,7 @@ YELLOW = Adafruit_WS2801.RGB_to_color(255, 84, 3)
 
 # Dimensions of a letter.
 LETTER_HEIGHT = 7
-LETTER_WIDTH = 3
+LETTER_WIDTH = 5
 TOP_MARGIN = 2
 BOT_MARGIN = 1
 SPACE = 1
@@ -100,7 +100,7 @@ def draw_message(pixels, message, message_color, background_color):
 	#TODO: Create a loop that shifts everything over.
 	draw_matrices(pixels)
 
-# Assumes that the height is 7. Adds the word to the matrix at start.
+# Assumes that the height is 7 and width of each letter is 5. Adds the word to the matrix at start.
 def draw_R(start, color):
 	for row in range(2, 9):
 		front[row][start + 1] = color
@@ -109,10 +109,16 @@ def draw_R(start, color):
 	front[5][start + 2] = color
 
 	front[2][start + 3] = color
-	front[3][start + 3] = color
-	front[4][start + 3] = color
-	for row in range(6, 9):
-		front[row][start + 3] = color
+	front[5][start + 3] = color
+	front[6][start + 3] = color
+
+	front[2][start + 4] = color
+	front[5][start + 4] = color
+	front[7][start + 4] = color
+
+	for row in range(2, 6):
+		front[row][start + 5] = color
+	front[8][start + 5] = color
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
@@ -126,5 +132,5 @@ def one_side(pixels):
 if __name__ == "__main__":
 	pixels.clear()
 	one_side(pixels)
-	time.sleep(3)
+	time.sleep(0.5)
 	draw_message(pixels, 'RRR', DARK_RED, YELLOW)
