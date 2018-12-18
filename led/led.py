@@ -174,6 +174,26 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_V(start * FULL_LETTER, message_color)
 		elif letter == 'Z':
 			draw_Z(start * FULL_LETTER, message_color)
+		elif letter == 'G':
+			draw_G(start * FULL_LETTER, message_color)
+		elif letter == 'J':
+			draw_J(start * FULL_LETTER, message_color)
+		elif letter == 'L':
+			draw_L(start * FULL_LETTER, message_color)
+		elif letter == 'N':
+			draw_N(start * FULL_LETTER, message_color)
+		elif letter == 'P':
+			draw_P(start * FULL_LETTER, message_color)
+		elif letter == 'T':
+			draw_T(start * FULL_LETTER, message_color)
+		elif letter == 'W':
+			draw_W(start * FULL_LETTER, message_color)
+		elif letter == 'Y':
+			draw_Y(start * FULL_LETTER, message_color)
+		elif letter == 'Q':
+			draw_Q(start * FULL_LETTER, message_color)
+		elif letter == 'X':
+			draw_X(start * FULL_LETTER, message_color)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -614,4 +634,6 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+=', DARK_RED, YELLOW, 0.06)
+		# draw_message(pixels, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+=', DARK_RED, YELLOW, 0.1)
+
+		draw_message(pixels, 'GJLNPTWYQX', DARK_RED, YELLOW, 0.4)
