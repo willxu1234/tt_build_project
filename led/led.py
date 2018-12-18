@@ -117,6 +117,16 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 		letter = message[start - 1]
 		if letter == 'R':
 			draw_R(start * FULL_LETTER, message_color)
+		elif letter == 'B':	
+			draw_B(start * FULL_LETTER, message_color)
+		elif letter == 'D':	
+			draw_D(start * FULL_LETTER, message_color)
+		elif letter == 'F':	
+			draw_F(start * FULL_LETTER, message_color)
+		elif letter == 'I':	
+			draw_I(start * FULL_LETTER, message_color)
+		elif letter == 'K':	
+			draw_K(start * FULL_LETTER, message_color)
 		elif letter == 'A':	
 			draw_A(start * FULL_LETTER, message_color)
 		elif letter == 'C':	
@@ -197,6 +207,52 @@ def draw_A(start, color):
 		front[2][col] = color
 		front[5][col] = color
 
+def draw_B(start, color): 
+	for row in range(2,9): 
+		front[row][start + 1] = color 
+	for num in range(2, 5): 
+		front[2][start + num] = color
+		front[5][start + num] = color 
+		front[8][start + num] = color 
+	front[3][start + 5] = color 
+	front[4][start + 5] = color
+	front[6][start + 5] = color 
+	front[7][start + 5] = color 
+
+def draw_D(start, color): 
+	for row in range(2,9): 
+		front[row][start + 1] = color 
+	for num in range(2,5): 
+		front[2][start + num] = color
+		front[8][start + num] = color 
+	for row in range(3,8):
+		front[row][start + 5] = color 
+
+def draw_F(start, color): 
+	for row in range(2,9):
+		front[row][start + 1] = color 
+	for num in range(2,5): 
+		front[2][start + num] = color 
+		front[5][start + num] = color 
+
+def draw_I(start, color): 
+	for row in range(3,8):
+		front[row][start + 3] = color 
+	for num in range(1,6):
+		front[2][start + num] = color 
+		front[8][start + num] = color 
+
+def draw_K(start, color):
+	for row in range(2,9):
+		front[row][start + 1] = color
+	front[5][start + 2] = color
+	front[4][start + 3] = color
+	front[3][start + 4] = color
+	front[2][start + 5] = color
+	front[6][start + 3] = color
+	front[7][start + 4] = color
+	front[8][start + 5] = color 
+ 
 def draw_C(start, color):
 	for row in range(2, 9):
 		front[row][start+1] = color
@@ -275,5 +331,5 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RUSHACE', DARK_RED, YELLOW, 0.1)
+		draw_message(pixels, 'RUSHACEBDFIK', DARK_RED, YELLOW, 0.1)
 		draw_letters(pixels, DARK_RED, YELLOW, 0.8)
