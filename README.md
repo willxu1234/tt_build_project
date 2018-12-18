@@ -30,3 +30,7 @@ python ws2801_example.py
 To make a change, first create a branch with `git checkout -b [branch name]`
 then push with `git push origin [branch name]`
 then make a pull request and Will will approve it
+
+-----------------[ Current Letters ]---------------------
+
+ABCDEFHIKMORSUVZ0123456789+=
