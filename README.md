@@ -67,5 +67,7 @@ then make a pull request and Will will approve it.
 <> is a rose with the stem to the left
 () is a rose with the stem to the right
 ;:| is a hammer and tongs
+o is a binary 0
+l is a binary 1
 
 We also have A-Z and 0-9, with . and ! as punctuation.
