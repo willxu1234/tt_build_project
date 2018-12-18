@@ -71,7 +71,7 @@ def draw_matrices(pixels, start=0):
 	for row in range(PIXEL_ROW):
 		for col in range(start, PIXEL_COL + start):
 			pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
-	pixels.show()	
+	pixels.show()
 
 # Scrolls across all of front with time wait in between renders.
 def draw_scrolling(pixels, wait=0.5):
@@ -80,7 +80,6 @@ def draw_scrolling(pixels, wait=0.5):
 		time.sleep(wait)
 
 # Draws the message in message_color with a background color. 
-# TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	message_col_count = FULL_LETTER * len(message)
 	global front
@@ -96,9 +95,25 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 		letter = message[start - 1]
 		if letter == 'R':
 			draw_R(start * FULL_LETTER, message_color)
+		elif letter == 'B':	
+			draw_B(start * FULL_LETTER, message_color)
+		elif letter == 'D':	
+			draw_D(start * FULL_LETTER, message_color)
+		elif letter == 'F':	
+			draw_F(start * FULL_LETTER, message_color)
+		elif letter == 'I':	
+			draw_I(start * FULL_LETTER, message_color)
+		elif letter == 'K':	
+			draw_K(start * FULL_LETTER, message_color)
+		elif letter == 'A':	
+			draw_A(start * FULL_LETTER, message_color)
+		elif letter == 'C':	
+			draw_C(start * FULL_LETTER, message_color)
+		elif letter == 'E':	
+			draw_E(start * FULL_LETTER, message_color)
 		elif letter == 'U':
 			draw_U(start * FULL_LETTER, message_color)
-		elif letter == 'S':	
+		elif letter == 'S':
 			draw_S(start * FULL_LETTER, message_color)
 		elif letter == 'H':
 			draw_H(start * FULL_LETTER, message_color)
@@ -145,7 +160,7 @@ def draw_U(start, color):
 		front[8][col] = color
 
 def draw_S(start, color):
-	for row in range(2, 5):
+	for row in range(2, 6):
 		front[row][start + 1] = color
 	front[8][start + 1] = color
 
@@ -161,9 +176,81 @@ def draw_H(start, color):
 	for row in range(2, 9):
 		front[row][start + 1] = color
 		front[row][start + 5] = color
-	
+
 	for col in range(start + 2, start + 5):
 		front[5][col] = color
+
+def draw_A(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+		front[5][col] = color
+
+def draw_B(start, color): 
+	for row in range(2,9): 
+		front[row][start + 1] = color 
+	for num in range(2, 5): 
+		front[2][start + num] = color
+		front[5][start + num] = color 
+		front[8][start + num] = color 
+	front[3][start + 5] = color 
+	front[4][start + 5] = color
+	front[6][start + 5] = color 
+	front[7][start + 5] = color 
+
+def draw_D(start, color): 
+	for row in range(2,9): 
+		front[row][start + 1] = color 
+	for num in range(2,5): 
+		front[2][start + num] = color
+		front[8][start + num] = color 
+	for row in range(3,8):
+		front[row][start + 5] = color 
+
+def draw_F(start, color): 
+	for row in range(2,9):
+		front[row][start + 1] = color 
+	for num in range(2,5): 
+		front[2][start + num] = color 
+		front[5][start + num] = color 
+
+def draw_I(start, color): 
+	for row in range(3,8):
+		front[row][start + 3] = color 
+	for num in range(1,6):
+		front[2][start + num] = color 
+		front[8][start + num] = color 
+
+def draw_K(start, color):
+	for row in range(2,9):
+		front[row][start + 1] = color
+	front[5][start + 2] = color
+	front[4][start + 3] = color
+	front[3][start + 4] = color
+	front[2][start + 5] = color
+	front[6][start + 3] = color
+	front[7][start + 4] = color
+	front[8][start + 5] = color 
+ 
+def draw_C(start, color):
+	for row in range(2, 9):
+		front[row][start+1] = color
+
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+		front[8][col] = color
+
+def draw_E(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[2][col] = color
+		front[5][col] = color
+		front[8][col] = color
 
 def draw_theta(start, color):
         # column 1
