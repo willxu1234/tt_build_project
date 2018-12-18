@@ -187,6 +187,117 @@ def draw_E(start, color):
 		front[5][col] = color
 		front[8][col] = color
 
+def draw_G(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+	for row in range(5, 9):
+		front[row][start + 5] = color
+	for col in range(2, 6):
+		front[2][col] = color
+		front[8][col] = color
+	for col in range(3, 6):
+		front[5][col] = color
+
+def draw_Y(start,color):
+	for row in range(5, 9):
+		front[row][start + 3] = color
+
+	front[4][start + 4] = color
+	front[4][start + 6] = color
+	front[3][start + 3] = color
+	front[3][start + 7] = color
+	front[2][start + 2] = color
+	front[2][start + 8] = color
+
+def draw_W(start,color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	front[6][start + 2] = color
+	front[6][start + 4] = color
+	front[5][start + 3] = color
+
+def draw_T(start, color):
+	for row in range(2, 9):
+		front[row][start + 3] = color
+
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+
+	for row in range(6, 9):
+		front[row][start + 5] = color
+
+def draw_P(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+		front[6][col] = color
+
+	for row in range(3, 6):
+		front[row][start + 5] = color
+
+def draw_N(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	front[4][start + 2] = color
+	front[5][start + 3] = color
+	front[6][start + 4] = color
+
+def draw_L(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[8][col] = color
+
+def draw_X(start, color):
+	for row in range(2, 4):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	for row in range(7, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	front[4][start + 2] = color
+	front[6][start + 2] = color
+	front[4][start + 4] = color
+	front[6][start + 4] = color
+	front[5][start + 3] = color
+
+def draw_Q(start, color):
+	for row in range(3, 8):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+
+	for row in range(3, 7):
+		front[row][start + 5] = color
+
+	front[8][start + 2] = color
+	front[8][start + 3] = color
+	front[6][start + 3] = color
+	front[7][start + 4] = color
+	front[8][start + 5] = color
+
+def draw_J(start, color):
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+
+	for row in range(3, 9):
+		front[row][start + 3] = color
+
+	front[8][start + 2] = color
+	front[8][start + 1] = color
+	front[7][start + 1] = color
+	front[6][start + 1] = color
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
