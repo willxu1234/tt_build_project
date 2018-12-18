@@ -177,6 +177,26 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_V(start * FULL_LETTER, message_color)
 		elif letter == 'Z':
 			draw_Z(start * FULL_LETTER, message_color)
+		elif letter == 'G':
+			draw_G(start * FULL_LETTER, message_color)
+		elif letter == 'J':
+			draw_J(start * FULL_LETTER, message_color)
+		elif letter == 'L':
+			draw_L(start * FULL_LETTER, message_color)
+		elif letter == 'N':
+			draw_N(start * FULL_LETTER, message_color)
+		elif letter == 'P':
+			draw_P(start * FULL_LETTER, message_color)
+		elif letter == 'T':
+			draw_T(start * FULL_LETTER, message_color)
+		elif letter == 'W':
+			draw_W(start * FULL_LETTER, message_color)
+		elif letter == 'Y':
+			draw_Y(start * FULL_LETTER, message_color)
+		elif letter == 'Q':
+			draw_Q(start * FULL_LETTER, message_color)
+		elif letter == 'X':
+			draw_X(start * FULL_LETTER, message_color)
 		elif letter == '<':
 			draw_rose_left(start * FULL_LETTER)
 		elif letter == '>':
@@ -328,11 +348,11 @@ def draw_Z(start, color):
 		front[2][start + num] = color
 		front[8][start + num] = color
 	front[3][start + 5] = color
-	front[4][start + 5] = color
-	front[5][start + 4] = color
-	front[6][start + 3] = color
-	front[7][start + 2] = color
-	front[8][start + 5] = color
+	front[4][start + 4] = color
+	front[5][start + 3] = color
+	front[6][start + 2] = color
+	front[7][start + 1] = color
+
 
 def draw_C(start, color):
 	for row in range(2, 9):
@@ -351,6 +371,117 @@ def draw_E(start, color):
 		front[5][col] = color
 		front[8][col] = color
 
+def draw_G(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+	for row in range(7, 9):
+		front[row][start + 5] = color
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+		front[8][col] = color
+
+	front[3][start + 5] = color
+	front[7][start + 5] = color
+	front[6][start + 5] = color
+	front[5][start + 4] = color
+
+def draw_Y(start,color):
+	for row in range(4, 9):
+		front[row][start + 3] = color
+
+	front[2][start + 1] = color
+	front[3][start + 2] = color
+	front[3][start + 4] = color
+	front[2][start + 5] = color
+
+def draw_W(start,color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	front[6][start + 2] = color
+	front[6][start + 4] = color
+	front[5][start + 3] = color
+
+def draw_T(start, color):
+	for row in range(2, 9):
+		front[row][start + 3] = color
+
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+
+	for row in range(6, 9):
+		front[row][start + 5] = color
+
+def draw_P(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+		front[6][col] = color
+
+	for row in range(3, 6):
+		front[row][start + 5] = color
+
+def draw_N(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	front[4][start + 2] = color
+	front[5][start + 3] = color
+	front[6][start + 4] = color
+
+def draw_L(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[8][col] = color
+
+def draw_X(start, color):
+	for row in range(2, 4):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	for row in range(7, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	front[4][start + 2] = color
+	front[6][start + 2] = color
+	front[4][start + 4] = color
+	front[6][start + 4] = color
+	front[5][start + 3] = color
+
+def draw_Q(start, color):
+	for row in range(3, 8):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+
+	for row in range(3, 7):
+		front[row][start + 5] = color
+
+	front[8][start + 2] = color
+	front[8][start + 3] = color
+	front[6][start + 3] = color
+	front[7][start + 4] = color
+	front[8][start + 5] = color
+
+def draw_J(start, color):
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+
+	for row in range(3, 9):
+		front[row][start + 3] = color
+
+	front[8][start + 2] = color
+	front[8][start + 1] = color
+	front[7][start + 1] = color
+	front[6][start + 1] = color
 def draw_exclamation(start, color):
 	for row in range(2, 7):
 		front[row][start + 1] = color
