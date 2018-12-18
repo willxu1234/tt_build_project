@@ -12,6 +12,9 @@ PIXEL_COL = 8
 
 # Color constants.
 DARK_RED = Adafruit_WS2801.RGB_to_color(128, 0, 0)
+LIGHT_RED = Adafruit_WS2801.RGB_to_color(255, 0, 0)
+DARK_GREEN = Adafruit_WS2801.RGB_to_color(0, 128, 0)
+LIGHT_GREEN = Adafruit_WS2801.RGB_to_color(0, 255, 0)
 YELLOW = Adafruit_WS2801.RGB_to_color(255, 84, 3)
 
 # Dimensions of a letter.
@@ -100,7 +103,7 @@ def draw_letters(pixels, color, background_color, wait=0.5):
 		draw_matrices(pixels, 0)
 		time.sleep(wait)
 
-# Draws the message in message_color with a background color. 
+# Draws the message in message_color with a background color.
 def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	message_col_count = FULL_LETTER * len(message)
 	global front
@@ -174,6 +177,10 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_V(start * FULL_LETTER, message_color)
 		elif letter == 'Z':
 			draw_Z(start * FULL_LETTER, message_color)
+		elif letter == '<':
+			draw_rose_left(start * FULL_LETTER)
+		elif letter == '>':
+			draw_rose_right(start * FULL_LETTER)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -286,7 +293,7 @@ def draw_K(start, color):
 	front[2][start + 5] = color
 	front[6][start + 3] = color
 	front[7][start + 4] = color
-	front[8][start + 5] = color 
+	front[8][start + 5] = color
 
 def draw_M(start, color):
 	for row in range(2,9):
@@ -294,7 +301,7 @@ def draw_M(start, color):
 		front[row][start + 5] = color
 	front[3][start + 2] = color
 	front[4][start + 3] = color
-	front[3][start + 4] = color 
+	front[3][start + 4] = color
 
 def draw_O(start, color):
 	for row in range(2,9):
@@ -302,19 +309,19 @@ def draw_O(start, color):
 		front[row][start + 5] = color
 	for num in range(2,5):
 		front[2][start + num] = color
-		front[8][start + num] = color 
+		front[8][start + num] = color
 
-def draw_V(start, color): 
+def draw_V(start, color):
 	for row in range(2,6):
 		front[row][start + 1] = color
 		front[row][start + 5] = color
 	front[7][start + 2] = color
 	front[8][start + 3] = color
-	front[7][start + 4] = color 
+	front[7][start + 4] = color
 
 def draw_Z(start, color):
 	for num in range(1,6):
-		front[2][start + num] = color 
+		front[2][start + num] = color
 		front[8][start + num] = color
 	front[3][start + 5] = color
 	front[4][start + 5] = color
@@ -469,7 +476,7 @@ def draw_theta(start, color):
         for row in range(3, 8):
             for i in range(len(ar)):
                 front[row][start + ar[i]] = color
-        
+
         ar_row = [2,5,8]
         # column 3 to 4
 	for i in range(len(ar_row)):
@@ -489,6 +496,45 @@ def draw_tau(start, color):
         front[8][start + 3] = color
         front[8][start + 5] = color
 
+def draw_rose_left(start):
+	front[3][start + 2] = DARK_RED
+	front[4][start + 2] = DARK_RED
+
+	front[2][start + 3] = LIGHT_RED
+	front[3][start + 3] = DARK_RED
+	front[4][start + 3] = DARK_RED
+	front[5][start + 3] = DARK_RED
+
+	front[2][start + 4] = LIGHT_RED
+	front[3][start + 4] = LIGHT_RED
+	front[4][start + 4] = DARK_RED
+	front[5][start + 4] = DARK_RED
+
+	front[3][start + 5] = LIGHT_RED
+	front[4][start + 5] = DARK_RED
+	front[5][start + 5] = DARK_GREEN
+	front[7][start + 5] = LIGHT_GREEN
+	front[8][start + 5] = LIGHT_GREEN
+
+	front[6][start + 6] = DARK_GREEN
+	front[7][start + 6] = LIGHT_GREEN
+	front[8][start + 6] = DARK_GREEN
+
+def draw_rose_right(start):
+	front[4][start] = LIGHT_GREEN
+	front[5][start] = LIGHT_GREEN
+	front[6][start] = LIGHT_GREEN
+
+	front[4][start + 1] = LIGHT_GREEN
+	front[5][start + 1] = DARK_GREEN
+	front[7][start + 1] = DARK_GREEN
+
+	front[7][start + 2] = DARK_GREEN
+
+	front[8][start + 3] = DARK_GREEN
+
+	front[8][start + 4] = DARK_GREEN
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
@@ -504,4 +550,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, '55555555', DARK_RED, YELLOW, 0.06)
+		draw_message(pixels, '<>+=<>', DARK_RED, YELLOW, 0.06)
