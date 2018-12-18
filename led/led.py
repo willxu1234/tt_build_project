@@ -79,6 +79,25 @@ def draw_scrolling(pixels, wait=0.5):
 		draw_matrices(pixels, start)
 		time.sleep(wait)
 
+# Static display of Theta Tau letters
+def draw_letters(pixels, color, background_color, wait=0.5):
+        global front
+        del front[:]
+        # Use up entire front space
+        front = [[] for r in range(PIXEL_ROW)]
+        for row in front:
+            for c in range( PIXEL_COL ):
+                row.append( background_color )
+        draw_theta(0, color)
+        draw_matrices(pixels, 0)
+        for row in front:
+            for c in range( PIXEL_COL ):
+                row.append( background_color )
+        time.sleep(wait)
+        draw_tau(0, color)
+        draw_matrices(pixels, 0)
+        
+
 # Draws the message in message_color with a background color. 
 # TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color, wait=0.5):
@@ -160,6 +179,38 @@ def draw_H(start, color):
 	
 	for col in range(start + 2, start + 5):
 		front[5][col] = color
+
+def draw_theta(start, color):
+        # column 1
+        for row in range(1, 8):
+            front[row][start + 1]
+        
+        # column 2 to 5
+        for buf in range(2, 6)
+            front[1][start + buf]
+            front[5][start + buf]
+            front[8][start + buf]
+
+        # column 6
+        for row in range(1, 8):
+            front[row][start + 6]
+
+def draw_tau(start, color):
+        # column 1
+        front[1][start + 1]
+        front[2][start + 1]
+
+        # top horizontal
+        for buf in range(2, 8)
+            front[1][start + buf]
+
+        # column 7
+        front[1][start + 7]
+        front[2][start + 7]
+
+        # middle stem
+        for row in range(2, 9)
+            front[row][4]
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
