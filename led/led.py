@@ -217,6 +217,19 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 			draw_led.draw_ht_mid(start * FULL_LETTER, front)
 		elif letter == '|':
 			draw_led.draw_ht_right(start * FULL_LETTER, front)
+<<<<<<< HEAD
+<<<<<<< HEAD
+		elif letter == 'b':
+			draw_potion(start * FULL_LETTER, front)
+		elif letter == 'd':
+			draw_potion2(start * FULL_LETTER, front)
+		elif letter == 'f':
+			draw_rocket(start * FULL_LETTER, front)
+		elif letter == 'h':
+			draw_rocket2(start * FULL_LETTER, front)
+=======
+		elif letter == 'o': # alt + 4
+=======
 		elif letter == 'a': 
 			draw_led.draw_plant_left(start * FULL_LETTER, front) 
 		elif letter == 'c': 
@@ -230,9 +243,11 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 		elif letter == 'k': 
 			draw_led.draw_build_right(start * FULL_LETTER, front) 
 		elif letter == 'o':
+>>>>>>> 13b9349cf80cfe0314d2126eed7c5cd4fbb88e13
 			draw_led.draw_zero(start * FULL_LETTER, LIGHT_GREEN, front)
 		elif letter == 'l':
 			draw_led.draw_one(start * FULL_LETTER, LIGHT_GREEN, front)
+>>>>>>> 273cda8f557ce666838954b7f713483455df900b
 		elif letter == ' ':
 			# Draw a full space.
 			pass
