@@ -337,11 +337,11 @@ def draw_Z(start, color):
 		front[2][start + num] = color
 		front[8][start + num] = color
 	front[3][start + 5] = color
-	front[4][start + 5] = color
-	front[5][start + 4] = color
-	front[6][start + 3] = color
-	front[7][start + 2] = color
-	front[8][start + 5] = color
+	front[4][start + 4] = color
+	front[5][start + 3] = color
+	front[6][start + 2] = color
+	front[7][start + 1] = color
+
 
 def draw_C(start, color):
 	for row in range(2, 9):
@@ -363,24 +363,25 @@ def draw_E(start, color):
 def draw_G(start, color):
 	for row in range(2, 9):
 		front[row][start + 1] = color
-	for row in range(5, 9):
+	for row in range(7, 9):
 		front[row][start + 5] = color
-	for col in range(2, 6):
+	for col in range(start + 2, start + 5):
 		front[2][col] = color
 		front[8][col] = color
-	for col in range(3, 6):
-		front[5][col] = color
+
+	front[3][start + 5] = color
+	front[7][start + 5] = color
+	front[6][start + 5] = color
+	front[5][start + 4] = color
 
 def draw_Y(start,color):
-	for row in range(5, 9):
+	for row in range(4, 9):
 		front[row][start + 3] = color
 
-	front[4][start + 4] = color
-	front[4][start + 6] = color
-	front[3][start + 3] = color
-	front[3][start + 7] = color
-	front[2][start + 2] = color
-	front[2][start + 8] = color
+	front[2][start + 1] = color
+	front[3][start + 2] = color
+	front[3][start + 4] = color
+	front[2][start + 5] = color
 
 def draw_W(start,color):
 	for row in range(2, 9):
