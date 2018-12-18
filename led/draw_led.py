@@ -525,3 +525,56 @@ def draw_reverse_rose_left(start):
 	front[4][start + 6] = LIGHT_GREEN
 	front[5][start + 6] = LIGHT_GREEN
 	front[6][start + 6] = LIGHT_GREEN
+
+def draw_ht_left(start):
+	front[2][start + 3] = DARK_PURPLE
+	front[3][start + 3] = DARK_PURPLE
+
+	front[2][start + 4] = DARK_PURPLE
+	front[4][start + 4] = DARK_PURPLE
+	front[8][start + 4] = DARK_PURPLE
+
+	front[3][start + 5] = DARK_PURPLE
+	front[4][start + 5] = DARK_PURPLE
+	front[8][start + 5] = DARK_PURPLE
+
+	front[4][start + 6] = DARK_PURPLE
+	front[7][start + 6] = DARK_PURPLE
+
+def draw_ht_mid(start):
+	front[5][start] = DARK_PURPLE
+	front[7][start] = DARK_PURPLE
+	front[5][start + 6] = DARK_PURPLE
+	front[7][start + 6] = DARK_PURPLE
+
+	for row in range(3, 6):
+		for col in range(start + 1, start + 6):
+			front[row][col] = LIGHT_TAN
+
+
+	for row in range(6, 8):
+		for col in range(start + 1, start + 6):
+			front[row][col] = DARK_TAN
+
+	front[6][start + 4] = LIGHT_TAN
+	front[6][start + 5] = LIGHT_TAN
+
+	for col in range(col + 2, col + 5):
+		front[8][col] = DARK_TAN
+
+def draw_ht_right(start):
+	front[2][start] = DARK_PURPLE
+	front[4][start] = DARK_PURPLE
+	front[7][start] = DARK_PURPLE
+
+	front[2][start + 1] = DARK_PURPLE
+	front[3][start + 1] = DARK_PURPLE
+	front[4][start + 1] = DARK_PURPLE
+	front[8][start + 1] = DARK_PURPLE
+
+	for row in range(2, 6):
+		front[row][start + 2] = DARK_PURPLE
+	front[8][start + 1] = DARK_PURPLE
+
+	for row in range(3, 6):
+		front[row][start + 3] = DARK_PURPLE
