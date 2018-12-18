@@ -174,17 +174,17 @@ def draw_theta(start, color):
         
         ar_row = [2,5,8]
         # column 3 to 4
-        for row in range(len(ar_row))
+		for row in range(len(ar_row)):
             for col in range(3,6)
                 front[row][start + col] = color
             
 
 
 def draw_tau(start, color):
-        for col in range(2,7)
+		for col in range(2,7):
             front[2][start + col] = color
 
-        for row in range(3,9)
+        for row in range(3,9):
             front[row][4]
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
