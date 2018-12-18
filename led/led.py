@@ -113,103 +113,103 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	for start in range(1, len(message) + 1):
 		letter = message[start - 1]
 		if letter == 'R':
-			draw_led.draw_R(start * FULL_LETTER, message_color)
+			draw_led.draw_R(start * FULL_LETTER, message_color, front)
 		elif letter == 'B':
-			draw_led.draw_B(start * FULL_LETTER, message_color)
+			draw_led.draw_B(start * FULL_LETTER, message_color, front)
 		elif letter == 'D':
-			draw_led.draw_D(start * FULL_LETTER, message_color)
+			draw_led.draw_D(start * FULL_LETTER, message_color, front)
 		elif letter == 'F':
-			draw_led.draw_F(start * FULL_LETTER, message_color)
+			draw_led.draw_F(start * FULL_LETTER, message_color, front)
 		elif letter == 'I':
-			draw_led.draw_I(start * FULL_LETTER, message_color)
+			draw_led.draw_I(start * FULL_LETTER, message_color, front)
 		elif letter == 'K':
-			draw_led.draw_K(start * FULL_LETTER, message_color)
+			draw_led.draw_K(start * FULL_LETTER, message_color, front)
 		elif letter == 'A':
-			draw_led.draw_A(start * FULL_LETTER, message_color)
+			draw_led.draw_A(start * FULL_LETTER, message_color, front)
 		elif letter == 'C':
-			draw_led.draw_C(start * FULL_LETTER, message_color)
+			draw_led.draw_C(start * FULL_LETTER, message_color, front)
 		elif letter == 'E':
-			draw_led.draw_E(start * FULL_LETTER, message_color)
+			draw_led.draw_E(start * FULL_LETTER, message_color, front)
 		elif letter == 'e':
-			draw_led.draw_epsilon(start * FULL_LETTER, message_color)
+			draw_led.draw_epsilon(start * FULL_LETTER, message_color, front)
 		elif letter == 'U':
-			draw_led.draw_U(start * FULL_LETTER, message_color)
+			draw_led.draw_U(start * FULL_LETTER, message_color, front)
 		elif letter == 'S':
-			draw_led.draw_S(start * FULL_LETTER, message_color)
+			draw_led.draw_S(start * FULL_LETTER, message_color, front)
 		elif letter == 'H':
-			draw_led.draw_H(start * FULL_LETTER, message_color)
+			draw_led.draw_H(start * FULL_LETTER, message_color, front)
 		elif letter == '0':
-			draw_led.draw_zero(start * FULL_LETTER, message_color)
+			draw_led.draw_zero(start * FULL_LETTER, message_color, front)
 		elif letter == '1':
-			draw_led.draw_one(start * FULL_LETTER, message_color)
+			draw_led.draw_one(start * FULL_LETTER, message_color, front)
 		elif letter == '2':
-			draw_led.draw_two(start * FULL_LETTER, message_color)
+			draw_led.draw_two(start * FULL_LETTER, message_color, front)
 		elif letter == '3':
-			draw_led.draw_three(start * FULL_LETTER, message_color)
+			draw_led.draw_three(start * FULL_LETTER, message_color, front)
 		elif letter == '4':
-			draw_led.draw_four(start * FULL_LETTER, message_color)
+			draw_led.draw_four(start * FULL_LETTER, message_color, front)
 		elif letter == '5':
-			draw_led.draw_five(start * FULL_LETTER, message_color)
+			draw_led.draw_five(start * FULL_LETTER, message_color, front)
 		elif letter == '6':
-			draw_led.draw_six(start * FULL_LETTER, message_color)
+			draw_led.draw_six(start * FULL_LETTER, message_color, front)
 		elif letter == '7':
-			draw_led.draw_seven(start * FULL_LETTER, message_color)
+			draw_led.draw_seven(start * FULL_LETTER, message_color, front)
 		elif letter == '8':
-			draw_led.draw_eight(start * FULL_LETTER, message_color)
+			draw_led.draw_eight(start * FULL_LETTER, message_color, front)
 		elif letter == '9':
-			draw_led.draw_nine(start * FULL_LETTER, message_color)
+			draw_led.draw_nine(start * FULL_LETTER, message_color, front)
 		elif letter == '!':
-			draw_led.draw_exclamation(start * FULL_LETTER, message_color)
+			draw_led.draw_exclamation(start * FULL_LETTER, message_color, front)
 		elif letter == '.':
-			draw_led.draw_period(start * FULL_LETTER, message_color)
+			draw_led.draw_period(start * FULL_LETTER, message_color, front)
 		elif letter == '+':
-			draw_led.draw_theta(start * FULL_LETTER, message_color)
+			draw_led.draw_theta(start * FULL_LETTER, message_color, front)
 		elif letter == '=':
-			draw_led.draw_tau(start * FULL_LETTER, message_color)
+			draw_led.draw_tau(start * FULL_LETTER, message_color, front)
 		elif letter == '^':
-			draw_led.draw_delta(start * FULL_LETTER, message_color)
+			draw_led.draw_delta(start * FULL_LETTER, message_color, front)
 		elif letter == 'M':
-			draw_led.draw_M(start * FULL_LETTER, message_color)
+			draw_led.draw_M(start * FULL_LETTER, message_color, front)
 		elif letter == 'O':
-			draw_led.draw_O(start * FULL_LETTER, message_color)
+			draw_led.draw_O(start * FULL_LETTER, message_color, front)
 		elif letter == 'V':
-			draw_led.draw_V(start * FULL_LETTER, message_color)
+			draw_led.draw_V(start * FULL_LETTER, message_color, front)
 		elif letter == 'Z':
-			draw_led.draw_Z(start * FULL_LETTER, message_color)
+			draw_led.draw_Z(start * FULL_LETTER, message_color, front)
 		elif letter == 'G':
-			draw_led.draw_G(start * FULL_LETTER, message_color)
+			draw_led.draw_G(start * FULL_LETTER, message_color, front)
 		elif letter == 'J':
-			draw_led.draw_J(start * FULL_LETTER, message_color)
+			draw_led.draw_J(start * FULL_LETTER, message_color, front)
 		elif letter == 'L':
-			draw_led.draw_L(start * FULL_LETTER, message_color)
+			draw_led.draw_L(start * FULL_LETTER, message_color, front)
 		elif letter == 'N':
-			draw_led.draw_N(start * FULL_LETTER, message_color)
+			draw_led.draw_N(start * FULL_LETTER, message_color, front)
 		elif letter == 'P':
-			draw_led.draw_P(start * FULL_LETTER, message_color)
+			draw_led.draw_P(start * FULL_LETTER, message_color, front)
 		elif letter == 'T':
-			draw_led.draw_T(start * FULL_LETTER, message_color)
+			draw_led.draw_T(start * FULL_LETTER, message_color, front)
 		elif letter == 'W':
-			draw_led.draw_W(start * FULL_LETTER, message_color)
+			draw_led.draw_W(start * FULL_LETTER, message_color, front)
 		elif letter == 'Y':
-			draw_led.draw_Y(start * FULL_LETTER, message_color)
+			draw_led.draw_Y(start * FULL_LETTER, message_color, front)
 		elif letter == 'Q':
-			draw_led.draw_Q(start * FULL_LETTER, message_color)
+			draw_led.draw_Q(start * FULL_LETTER, message_color, front)
 		elif letter == 'X':
-			draw_led.draw_X(start * FULL_LETTER, message_color)
+			draw_led.draw_X(start * FULL_LETTER, message_color, front)
 		elif letter == '<':
-			draw_led.draw_rose_left(start * FULL_LETTER)
+			draw_led.draw_rose_left(start * FULL_LETTER, front)
 		elif letter == '>':
-			draw_led.draw_rose_right(start * FULL_LETTER)
+			draw_led.draw_rose_right(start * FULL_LETTER, front)
 		elif letter == '(':
-			draw_led.draw_reverse_rose_left(start * FULL_LETTER)
+			draw_led.draw_reverse_rose_left(start * FULL_LETTER, front)
 		elif letter == ')':
-			draw_led.draw_reverse_rose_right(start * FULL_LETTER)
+			draw_led.draw_reverse_rose_right(start * FULL_LETTER, front)
 		elif letter == ';':
-			draw_led.draw_ht_left(start * FULL_LETTER)
+			draw_led.draw_ht_left(start * FULL_LETTER, front)
 		elif letter == ':':
-			draw_led.draw_ht_mid(start * FULL_LETTER)
+			draw_led.draw_ht_mid(start * FULL_LETTER, front)
 		elif letter == '|':
-			draw_led.draw_ht_right(start * FULL_LETTER)
+			draw_led.draw_ht_right(start * FULL_LETTER, front)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
