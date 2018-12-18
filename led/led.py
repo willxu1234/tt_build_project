@@ -174,8 +174,8 @@ def draw_theta(start, color):
         
         ar_row = [2,5,8]
         # column 3 to 4
-		for row in range(len(ar_row)):
-            for col in range(3,6)
+	for row in range(len(ar_row)):
+            for col in range(3,6):
                 front[row][start + col] = color
             
 
