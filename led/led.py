@@ -96,6 +96,12 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 		letter = message[start - 1]
 		if letter == 'R':
 			draw_R(start * FULL_LETTER, message_color)
+		elif letter == 'A':	
+			draw_A(start * FULL_LETTER, message_color)
+		elif letter == 'C':	
+			draw_C(start * FULL_LETTER, message_color)
+		elif letter == 'E':	
+			draw_E(start * FULL_LETTER, message_color)
 		elif letter == 'U':
 			draw_U(start * FULL_LETTER, message_color)
 		elif letter == 'S':
@@ -201,4 +207,4 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RUSH', DARK_RED, YELLOW, 0.1)
+		draw_message(pixels, 'RUSHACE', DARK_RED, YELLOW, 0.1)
