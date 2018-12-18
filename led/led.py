@@ -210,6 +210,7 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_led.draw_ht_mid(start * FULL_LETTER, front)
 		elif letter == '|':
 			draw_led.draw_ht_right(start * FULL_LETTER, front)
+<<<<<<< HEAD
 		elif letter == 'b':
 			draw_potion(start * FULL_LETTER, front)
 		elif letter == 'd':
@@ -218,6 +219,12 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_rocket(start * FULL_LETTER, front)
 		elif letter == 'h':
 			draw_rocket2(start * FULL_LETTER, front)
+=======
+		elif letter == 'o': # alt + 4
+			draw_led.draw_zero(start * FULL_LETTER, LIGHT_GREEN, front)
+		elif letter == 'l': # alt + 1
+			draw_led.draw_one(start * FULL_LETTER, LIGHT_GREEN, front)
+>>>>>>> 273cda8f557ce666838954b7f713483455df900b
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -243,4 +250,4 @@ if __name__ == "__main__":
 	while True:
 		# += are reserved chars for Theta Tau symbols
 		# draw_message(pixels, '<>+=;:|e^()', DARK_RED, YELLOW, 0.06)
-		draw_message(pixels, '<>+=;:|e^()', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), 0.06)
+		draw_message(pixels, '<>+=;:|e^() ololollllololollllololloolllo', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), 0.06)
