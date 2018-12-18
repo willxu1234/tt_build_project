@@ -166,6 +166,14 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_theta(start * FULL_LETTER, message_color)
 		elif letter == '=':
 			draw_tau(start * FULL_LETTER, message_color)
+		elif letter == 'M':
+			draw_M(start * FULL_LETTER, message_color)
+		elif letter == 'O':
+			draw_O(start * FULL_LETTER, message_color)
+		elif letter == 'V':
+			draw_V(start * FULL_LETTER, message_color)
+		elif letter == 'Z':
+			draw_Z(start * FULL_LETTER, message_color)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -278,6 +286,41 @@ def draw_K(start, color):
 	front[2][start + 5] = color
 	front[6][start + 3] = color
 	front[7][start + 4] = color
+	front[8][start + 5] = color 
+
+def draw_M(start, color):
+	for row in range(2,9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+	front[3][start + 2] = color
+	front[4][start + 3] = color
+	front[3][start + 4] = color 
+
+def draw_O(start, color):
+	for row in range(2,9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+	for num in range(2,5):
+		front[2][start + num] = color
+		front[8][start + num] = color 
+
+def draw_V(start, color): 
+	for row in range(2,6):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+	front[7][start + 2] = color
+	front[8][start + 3] = color
+	front[7][start + 4] = color 
+
+def draw_Z(start, color):
+	for num in range(1,6):
+		front[2][start + num] = color 
+		front[8][start + num] = color
+	front[3][start + 5] = color
+	front[4][start + 5] = color
+	front[5][start + 4] = color
+	front[6][start + 3] = color
+	front[7][start + 2] = color
 	front[8][start + 5] = color
 
 def draw_C(start, color):
@@ -365,7 +408,6 @@ def draw_five(start, color):
 	for row in range(3, 6):
 		front[row][start + 1] = color
 
-	front[4][start + 2] = color
 	for col in range(start + 2, start + 6):
 		front[5][col] = color
 
@@ -462,4 +504,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, 'RUSH +=', DARK_RED, YELLOW, 0.06)
+		draw_message(pixels, '55555555', DARK_RED, YELLOW, 0.06)
