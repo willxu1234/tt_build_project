@@ -29,6 +29,9 @@ for row in front:
 
 back = deepcopy(front)
 
+# Decides the hue of the back. Goes from 0 to 255.
+pos = 0
+
 #for row in matrix:
 #	for col in row:
 #		print str(col) + ' '
@@ -72,8 +75,11 @@ def draw_matrices(pixels, start=0):
 	pixels.show()
 
 # Scrolls across all of front with time wait in between renders.
-def draw_scrolling(pixels, wait=0.5):
+def draw_scrolling(pixels, rainbow=True, wait=0.5):
 	for start in range(len(front[0]) - FULL_LETTER):
+		# Paint the background if necessary.
+		if rainbow:
+			augment_hue()
 		draw_matrices(pixels, start)
 		time.sleep(wait)
 
@@ -98,8 +104,9 @@ def draw_letters(pixels, color, background_color, wait=0.5):
 		draw_matrices(pixels, 0)
 		time.sleep(wait)
 
-# Draws the message in message_color with a background color.
-def draw_message(pixels, message, message_color, background_color, wait=0.5):
+# Draws the message in message_color with a background color. rainbow decides whether or not the back
+# will be sweep through the rainbow colors.
+def draw_message(pixels, message, message_color, background_color, rainbow=True, wait=0.5):
 	message_col_count = FULL_LETTER * len(message)
 	global front
 	if PIXEL_COL < message_col_count:
@@ -233,8 +240,27 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			print("Unable to draw that letter.")
 			pass
 
-	#TODO: Create a loop that shifts everything over.
-	draw_scrolling(pixels, wait)
+	draw_scrolling(pixels, rainbow, wait)
+
+# Sets the back color to the next hue in the rainbow.
+def augment_hue():
+	global back
+	global pos
+	
+	hue = 0
+	if pos < 85:
+		hue = Adafruit_WS2801.RGB_to_color(pos * 3, 255 - pos, 0)
+	elif pos < 170:
+		hue = Adafruit_WS2801.RGB_to_color(255 - (pos - 85) * 3, 0, (pos - 85) * 3)
+	else:
+		hue = Adafruit_WS2801.RGB_to_color(0, (pos - 170) * 3, 255 - (pos - 170) * 3)
+
+	for row in range(PIXEL_ROW):
+		for col in range(PIXEL_COL):
+			back[row][col] = hue
+
+	pos = (pos + 1) % 255
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
@@ -251,4 +277,5 @@ if __name__ == "__main__":
 	while True:
 		# += are reserved chars for Theta Tau symbols
 		# draw_message(pixels, '<>+=;:|e^()', DARK_RED, YELLOW, 0.06)
-		draw_message(pixels, 'acmgik', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), 0.06)
+		# draw_message(pixels, 'acmgik', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), 0.06)
+		draw_message(pixels, '<>+=;:|e^() ololll', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), True, 0.06)
