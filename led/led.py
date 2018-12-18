@@ -220,11 +220,6 @@ def draw_tau(start, color):
             for row in range(1, 9):
                 front[row][start + buf] = color
 
-        ar = [2,5]
-        for row in range(7, 9):
-            for i in range(len(ar)):
-                front[row][start + ar[i]] = color
-
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
