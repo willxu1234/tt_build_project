@@ -581,6 +581,7 @@ def draw_ht_right(start, front):
 	for row in range(3, 6):
 		front[row][start + 3] = DARK_PURPLE
 
+<<<<<<< HEAD
 def draw_potion(start, color, front):
 	front[2][start + 4] = LIGHT_BLUE
 	front[2][start + 5] = LIGHT_BLUE
@@ -650,3 +651,98 @@ def draw_rocket2(start, color, front):
 
 	front[7][start + 3] = DARK_RED
 	front[7][start + 4] = DARK_RED
+=======
+def draw_plant_left(start, front): 
+	front[3][start + 5] = LIGHT_GREEN
+	front[3][start + 6] = LIGHT_GREEN
+	front[4][start + 4] = LIGHT_GREEN
+	front[7][start + 5] = ORANGE
+	front[7][start + 6] = ORANGE 
+	front[8][start + 4] = ORANGE
+	front[8][start + 5] = ORANGE
+	front[8][start + 6] = ORANGE 
+
+def draw_plant_right(start, front): 
+	front[3][start + 1] = LIGHT_GREEN
+	front[3][start + 2] = LIGHT_GREEN
+	front[4][start] = LIGHT_GREEN
+	front[4][start + 3] = LIGHT_GREEN
+	front[5][start] = LIGHT_GREEN
+	front[6][start] = LIGHT_GREEN
+	front[7][start] = ORANGE
+	front[7][start + 1] = ORANGE
+	front[7][start + 2] = ORANGE
+	front[8][start] = ORANGE
+	front[8][start + 1] = ORANGE 
+	front[8][start + 2] = ORANGE 
+	front[8][start + 3] = ORANGE 
+
+def draw_dna_left(start, front): 
+	front[2][start + 2] = LIGHT_BLUE
+	front[2][start + 3] = LIGHT_BLUE
+	front[3][start + 2] = YELLOW
+	front[3][start + 4] = LIGHT_BLUE
+	front[3][start + 5] = LIGHT_BLUE 
+	front[4][start + 2] = YELLOW
+	front[4][start + 4] = YELLOW
+	front[4][start + 6] = LIGHT_BLUE 
+	front[5][start + 2] = YELLOW
+	front[5][start + 4] = YELLOW
+	front[5][start + 6] = LIGHT_PURPLE 
+	front[6][start + 2] = YELLOW
+	front[6][start + 4] = LIGHT_PURPLE
+	front[6][start + 5] = LIGHT_PURPLE
+	front[7][start + 2] = LIGHT_PURPLE
+	front[7][start + 3] = LIGHT_PURPLE 
+
+def draw_dna_right(start, front): 
+	front[2][start + 3] = LIGHT_PURPLE
+	front[2][start + 4] = LIGHT_PURPLE 
+	front[3][start + 1] = LIGHT_PURPLE
+	front[3][start + 2] = LIGHT_PURPLE 		
+	front[3][start + 4] = YELLOW
+	front[4][start] = LIGHT_PURPLE 
+	front[4][start + 2] = YELLOW
+	front[4][start + 4] = YELLOW
+	front[5][start] = LIGHT_BLUE 
+	front[5][start + 2] = YELLOW
+	front[5][start + 4] = YELLOW
+	front[6][start + 1] = LIGHT_BLUE
+	front[6][start + 2] = LIGHT_BLUE 
+	front[6][start + 4] = YELLOW
+	front[7][start + 3] = LIGHT_BLUE
+	front[7][start + 4] = LIGHT_BLUE 
+
+def draw_build_left(start, front): 
+	for col in range(start + 2, start + 7): 
+		front[3][col] = DARK_PURPLE 
+		front[5][col] = DARK_PURPLE
+		front[7][col] = DARK_PURPLE 
+	front[4][start + 2] = DARK_PURPLE
+	front[4][start + 4] = DARK_PURPLE
+	front[4][start + 6] = DARK_PURPLE
+	front[6][start + 2] = DARK_PURPLE
+	front[6][start + 4] = DARK_PURPLE
+	front[6][start + 6] = DARK_PURPLE
+	front[8][start + 2] = DARK_PURPLE
+	front[8][start + 4] = DARK_PURPLE
+	front[8][start + 6] = DARK_PURPLE
+	front[4][start + 3] = YELLOW
+	front[4][start + 5] = YELLOW
+	front[6][start + 3] = YELLOW
+	front[6][start + 5] = YELLOW
+	front[8][start + 3] = YELLOW
+	front[8][start + 5] = YELLOW
+
+def draw_build_right(start, front): 
+	front[5][start + 1] = DARK_PURPLE
+	front[5][start + 3] = DARK_PURPLE 
+	for col in range(start, start + 5): 
+		front[6][col] = DARK_PURPLE
+		front[7][col] = DARK_PURPLE 
+	front[8][start] = DARK_PURPLE
+	front[8][start + 4] = DARK_PURPLE 
+	front[8][start + 1] = YELLOW
+	front[8][start + 2] = YELLOW
+	front[8][start + 3] = YELLOW 
+>>>>>>> 13b9349cf80cfe0314d2126eed7c5cd4fbb88e13
