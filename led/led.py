@@ -163,29 +163,30 @@ def draw_H(start, color):
 
 def draw_A(start, color):
 	for row in range(2, 9):
-		front[row][start+1] = color
-		front[row][start+5] = color
+		front[row][start + 1] = color
+		front[row][start + 5] = color
 
 	for col in range(start + 2, start + 5):
 		front[2][col] = color
 		front[5][col] = color
 
 def draw_C(start, color):
-	for row in range(2,9):
+	for row in range(2, 9):
 		front[row][start+1] = color
 
 	for col in range(start + 1, start + 6):
 		front[2][col] = color
 		front[8][col] = color
 
-def draw_E(start color):
-	for row in range(2,9):
-		front[row][start+1] = color
+def draw_E(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
 
 	for col in range(start + 2, start + 6):
 		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
