@@ -62,7 +62,7 @@ then make a pull request and Will will approve it.
 4. Create a case in led/led.py in the `draw_message` function. Be sure to pick a uniquely encoded, singular character.
 
 ## Current Letters
-+ is theta
+"+ is theta
 = is tau
 <> is a rose with the stem to the left
 () is a rose with the stem to the right
@@ -75,5 +75,8 @@ e is epsilon
 ac is plant
 mg is DNA
 ik is building
+bd is rocket
+fh is potion
+"
 
 We also have A-Z and 0-9, with . and ! as punctuation.

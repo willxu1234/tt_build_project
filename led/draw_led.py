@@ -405,30 +405,30 @@ def draw_nine(start, color, front):
 		front[row][start + 5] = color
 
 def draw_theta(start, color, front):
-        # column 1
-        ar = [2,6]
-        for row in range(3, 8):
-            for i in range(len(ar)):
-                front[row][start + ar[i]] = color
+	# column 1
+	ar = [2,6]
+	for row in range(3, 8):
+		for i in range(len(ar)):
+			front[row][start + ar[i]] = color
 
-        ar_row = [2,5,8]
-        # column 3 to 4
+	ar_row = [2,5,8]
+	# column 3 to 4
 	for i in range(len(ar_row)):
-            for col in range(3,6):
-                front[ar_row[i]][start + col] = color
+		for col in range(3,6):
+			front[ar_row[i]][start + col] = color
 
 
 def draw_tau(start, color, front):
-        for col in range(2,7):
-            front[2][start + col] = color
-        for row in range(3,9):
-            front[row][start + 4] = color
-        # serif details
-        front[3][start + 2] = color
-        front[3][start + 6] = color
+	for col in range(2,7):
+		front[2][start + col] = color
+	for row in range(3,9):
+		front[row][start + 4] = color
+	# serif details
+	front[3][start + 2] = color
+	front[3][start + 6] = color
 
-        front[8][start + 3] = color
-        front[8][start + 5] = color
+	front[8][start + 3] = color
+	front[8][start + 5] = color
 
 def draw_delta(start, color, front):
 	for col in range(start, start + 7):
@@ -628,7 +628,7 @@ def draw_dna_right(start, front):
 	front[2][start + 3] = LIGHT_PURPLE
 	front[2][start + 4] = LIGHT_PURPLE 
 	front[3][start + 1] = LIGHT_PURPLE
-	front[3][start + 2] = LIGHT_PURPLE 		
+	front[3][start + 2] = LIGHT_PURPLE		
 	front[3][start + 4] = YELLOW
 	front[4][start] = LIGHT_PURPLE 
 	front[4][start + 2] = YELLOW
@@ -674,3 +674,74 @@ def draw_build_right(start, front):
 	front[8][start + 1] = YELLOW
 	front[8][start + 2] = YELLOW
 	front[8][start + 3] = YELLOW 
+
+def draw_potion(start, front):
+	front[2][start + 4] = LIGHT_BLUE
+	front[2][start + 5] = LIGHT_BLUE
+	front[3][start + 5] = LIGHT_BLUE
+	front[4][start + 5] = LIGHT_BLUE
+	front[5][start + 4] = LIGHT_BLUE
+	front[5][start + 5] = WHITE
+	front[6][start + 3] = LIGHT_BLUE
+	front[6][start + 4] = WHITE
+	front[6][start + 5] = LIGHT_BLUE
+	front[7][start + 3] = LIGHT_BLUE
+	front[7][start + 4] = LIGHT_BLUE
+	front[7][start + 5] = LIGHT_BLUE
+	front[8][start + 4] = LIGHT_BLUE
+	front[8][start + 5] = LIGHT_BLUE
+ 
+def draw_potion2(start, front):
+	front[2][start + 1] = LIGHT_BLUE
+	front[2][start] = LIGHT_BLUE
+	front[3][start] = LIGHT_BLUE
+	front[4][start] = LIGHT_BLUE
+	front[5][start + 1] = LIGHT_BLUE
+	front[5][start] = LIGHT_BLUE
+	front[6][start + 2] = LIGHT_BLUE
+	front[6][start + 1] = LIGHT_BLUE
+	front[6][start] = LIGHT_BLUE
+	front[7][start + 2] = LIGHT_BLUE
+	front[7][start + 1] = LIGHT_BLUE
+	front[7][start] = LIGHT_BLUE
+	front[8][start + 1] = LIGHT_BLUE
+	front[8][start] = LIGHT_BLUE
+ 
+def draw_rocket(start, front):
+	front[4][start + 4] = DARK_RED
+	front[4][start + 5] = DARK_RED
+	front[4][start + 6] = DARK_RED
+ 
+	front[5][start + 2] = BLACK
+	front[5][start + 3] = BLACK
+	front[5][start + 4] = DARK_RED
+	front[5][start + 5] = DARK_RED
+	front[5][start + 6] = LIGHT_BLUE
+	
+	front[6][start + 4] = DARK_RED
+	front[6][start + 5] = DARK_RED
+	front[6][start + 6] = DARK_RED
+ 
+def draw_rocket2(start, front):
+	front[3][start + 3] = DARK_RED
+	front[3][start + 4] = DARK_RED
+ 
+	front[4][start] = WHITE
+	front[4][start + 1] = WHITE
+	front[4][start + 2] = WHITE
+	front[4][start + 3] = WHITE
+ 
+	front[5][start] = LIGHT_BLUE
+	front[5][start + 1] = WHITE
+	front[5][start + 2] = DARK_RED
+	front[5][start + 3] = DARK_RED
+	front[5][start + 4] = DARK_RED
+	
+	front[6][start] = WHITE
+	front[6][start + 1] = WHITE
+	front[6][start + 2] = WHITE
+	front[6][start + 3] = WHITE
+
+	front[7][start + 3] = DARK_RED
+	front[7][start + 4] = DARK_RED 
+	front[7][start + 4] = DARK_RED
