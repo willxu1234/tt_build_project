@@ -139,6 +139,30 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_S(start * FULL_LETTER, message_color)
 		elif letter == 'H':
 			draw_H(start * FULL_LETTER, message_color)
+		elif letter == '0':
+			draw_zero(start * FULL_LETTER, message_color)
+		elif letter == '1':
+			draw_one(start * FULL_LETTER, message_color)
+		elif letter == '2':
+			draw_two(start * FULL_LETTER, message_color)
+		elif letter == '3':
+			draw_three(start * FULL_LETTER, message_color)
+		elif letter == '4':
+			draw_four(start * FULL_LETTER, message_color)
+		elif letter == '5':
+			draw_five(start * FULL_LETTER, message_color)
+		elif letter == '6':
+			draw_six(start * FULL_LETTER, message_color)
+		elif letter == '7':
+			draw_seven(start * FULL_LETTER, message_color)
+		elif letter == '8':
+			draw_eight(start * FULL_LETTER, message_color)
+		elif letter == '9':
+			draw_nine(start * FULL_LETTER, message_color)
+		elif letter == '!':
+			draw_exclamation(start * FULL_LETTER, message_color)
+		elif letter == '.':
+			draw_period(start * FULL_LETTER, message_color)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
