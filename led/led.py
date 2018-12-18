@@ -79,28 +79,6 @@ def draw_scrolling(pixels, wait=0.5):
 		draw_matrices(pixels, start)
 		time.sleep(wait)
 
-# Static display of Theta Tau letters
-def draw_letters(pixels, color, background_color, wait=0.5):
-		global front
-		del front[:]
-		# Use up entire front space
-		front = [[] for r in range(PIXEL_ROW)]
-		for row in front:
-			for c in range( PIXEL_COL ):
-				row.append( background_color )
-		draw_theta(0, color)
-		draw_matrices(pixels, 0)
-		time.sleep(wait)
-		del front[:]
-		front = [[] for r in range(PIXEL_ROW)]
-		for row in front:
-			for c in range( PIXEL_COL ):
-				row.append( background_color )
-		draw_tau(0, color)
-		draw_matrices(pixels, 0)
-		time.sleep(wait)
-        
-
 # Draws the message in message_color with a background color. 
 # TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color, wait=0.5):
@@ -124,6 +102,10 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_S(start * FULL_LETTER, message_color)
 		elif letter == 'H':
 			draw_H(start * FULL_LETTER, message_color)
+		elif letter == '+':
+			draw_theta(start * FULL_LETTER, message_color)
+		elif letter == '=':
+			draw_tau(start * FULL_LETTER, message_color)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -185,50 +167,25 @@ def draw_H(start, color):
 
 def draw_theta(start, color):
         # column 1
-        for row in range(2, 8):
-            front[row][start + 1] = color
+        ar = [2,6]
+        for row in range(3, 8):
+            for i in range(len(ar)):
+                front[row][start + ar[i]] = color
         
+        ar_row = [2,5,8]
         # column 3 to 4
-        for buf in range(3, 5):
-            front[1][start + buf] = color
-            front[2][start + buf] = color
+        for row in range(len(ar_row))
+            for col in range(3,6)
+                front[row][start + col] = color
             
-            front[5][start + buf] = color
-            
-            front[7][start + buf] = color
-            front[8][start + buf] = color
-
-        for row in range(1, 9):
-            front[row][start + 2] = color
-            front[row][start + 5] = color
-
-        # column 6
-        for row in range(2, 8):
-            front[row][start + 6] = color
 
 
 def draw_tau(start, color):
-        ar = [1,2,5,6]
-        # column 1
-        for row in range(1, 3):
-            for i in range(len(ar)):
-                front[row][start + ar[i]] = color
+        for col in range(2,7)
+            front[2][start + col] = color
 
-        # middle stem
-        for buf in range(3, 5):
-            for row in range(1, 9):
-                front[row][start + buf] = color
-
-        ar = [0,7]
-        # side details
-        for row in range(2,4):
-            for i in range(len(ar)):
-                front[row][start + ar[i]] = color
-
-        # bottom details
-        ar = [2,5]
-        for i in range(len(ar)):
-            front[8][ar[i]] = color
+        for row in range(3,9)
+            front[row][4]
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
@@ -244,5 +201,5 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RUSH', DARK_RED, YELLOW, 0.1)
-		draw_letters(pixels, DARK_RED, YELLOW, 0.8)
+                # += are reserved chars for Theta Tau symbols
+		draw_message(pixels, 'RUSH +=', DARK_RED, YELLOW, 0.1)
