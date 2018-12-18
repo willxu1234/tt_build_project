@@ -71,7 +71,7 @@ def draw_matrices(pixels, start=0):
 	for row in range(PIXEL_ROW):
 		for col in range(start, PIXEL_COL + start):
 			pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
-	pixels.show()	
+	pixels.show()
 
 # Scrolls across all of front with time wait in between renders.
 def draw_scrolling(pixels, wait=0.5):
@@ -102,7 +102,6 @@ def draw_letters(pixels, color, background_color, wait=0.5):
         
 
 # Draws the message in message_color with a background color. 
-# TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	message_col_count = FULL_LETTER * len(message)
 	global front
@@ -118,9 +117,15 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 		letter = message[start - 1]
 		if letter == 'R':
 			draw_R(start * FULL_LETTER, message_color)
+		elif letter == 'A':	
+			draw_A(start * FULL_LETTER, message_color)
+		elif letter == 'C':	
+			draw_C(start * FULL_LETTER, message_color)
+		elif letter == 'E':	
+			draw_E(start * FULL_LETTER, message_color)
 		elif letter == 'U':
 			draw_U(start * FULL_LETTER, message_color)
-		elif letter == 'S':	
+		elif letter == 'S':
 			draw_S(start * FULL_LETTER, message_color)
 		elif letter == 'H':
 			draw_H(start * FULL_LETTER, message_color)
@@ -163,7 +168,7 @@ def draw_U(start, color):
 		front[8][col] = color
 
 def draw_S(start, color):
-	for row in range(2, 5):
+	for row in range(2, 6):
 		front[row][start + 1] = color
 	front[8][start + 1] = color
 
@@ -179,9 +184,35 @@ def draw_H(start, color):
 	for row in range(2, 9):
 		front[row][start + 1] = color
 		front[row][start + 5] = color
-	
+
 	for col in range(start + 2, start + 5):
 		front[5][col] = color
+
+def draw_A(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
+		front[5][col] = color
+
+def draw_C(start, color):
+	for row in range(2, 9):
+		front[row][start+1] = color
+
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+		front[8][col] = color
+
+def draw_E(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[2][col] = color
+		front[5][col] = color
+		front[8][col] = color
 
 def draw_theta(start, color):
         # column 1
@@ -244,5 +275,5 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RUSH', DARK_RED, YELLOW, 0.1)
+		draw_message(pixels, 'RUSHACE', DARK_RED, YELLOW, 0.1)
 		draw_letters(pixels, DARK_RED, YELLOW, 0.8)
