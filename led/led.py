@@ -71,7 +71,7 @@ def draw_matrices(pixels, start=0):
 	for row in range(PIXEL_ROW):
 		for col in range(start, PIXEL_COL + start):
 			pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
-	pixels.show()	
+	pixels.show()
 
 # Scrolls across all of front with time wait in between renders.
 def draw_scrolling(pixels, wait=0.5):
@@ -79,8 +79,29 @@ def draw_scrolling(pixels, wait=0.5):
 		draw_matrices(pixels, start)
 		time.sleep(wait)
 
+# Static display of Theta Tau letters
+def draw_letters(pixels, color, background_color, wait=0.5):
+		global front
+		del front[:]
+		# Use up entire front space
+		front = [[] for r in range(PIXEL_ROW)]
+		for row in front:
+			for c in range( PIXEL_COL ):
+				row.append( background_color )
+		draw_theta(0, color)
+		draw_matrices(pixels, 0)
+		time.sleep(wait)
+		del front[:]
+		front = [[] for r in range(PIXEL_ROW)]
+		for row in front:
+			for c in range( PIXEL_COL ):
+				row.append( background_color )
+		draw_tau(0, color)
+		draw_matrices(pixels, 0)
+		time.sleep(wait)
+        
+
 # Draws the message in message_color with a background color. 
-# TODO: make it scroll
 def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	message_col_count = FULL_LETTER * len(message)
 	global front
@@ -96,9 +117,25 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 		letter = message[start - 1]
 		if letter == 'R':
 			draw_R(start * FULL_LETTER, message_color)
+		elif letter == 'B':	
+			draw_B(start * FULL_LETTER, message_color)
+		elif letter == 'D':	
+			draw_D(start * FULL_LETTER, message_color)
+		elif letter == 'F':	
+			draw_F(start * FULL_LETTER, message_color)
+		elif letter == 'I':	
+			draw_I(start * FULL_LETTER, message_color)
+		elif letter == 'K':	
+			draw_K(start * FULL_LETTER, message_color)
+		elif letter == 'A':	
+			draw_A(start * FULL_LETTER, message_color)
+		elif letter == 'C':	
+			draw_C(start * FULL_LETTER, message_color)
+		elif letter == 'E':	
+			draw_E(start * FULL_LETTER, message_color)
 		elif letter == 'U':
 			draw_U(start * FULL_LETTER, message_color)
-		elif letter == 'S':	
+		elif letter == 'S':
 			draw_S(start * FULL_LETTER, message_color)
 		elif letter == 'H':
 			draw_H(start * FULL_LETTER, message_color)
@@ -141,7 +178,7 @@ def draw_U(start, color):
 		front[8][col] = color
 
 def draw_S(start, color):
-	for row in range(2, 5):
+	for row in range(2, 6):
 		front[row][start + 1] = color
 	front[8][start + 1] = color
 
@@ -157,8 +194,17 @@ def draw_H(start, color):
 	for row in range(2, 9):
 		front[row][start + 1] = color
 		front[row][start + 5] = color
-	
+
 	for col in range(start + 2, start + 5):
+		front[5][col] = color
+
+def draw_A(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+		front[row][start + 5] = color
+
+	for col in range(start + 2, start + 5):
+		front[2][col] = color
 		front[5][col] = color
 
 def draw_B(start, color): 
@@ -207,6 +253,69 @@ def draw_K(start, color):
 	front[7][start + 4] = color
 	front[8][start + 5] = color 
  
+def draw_C(start, color):
+	for row in range(2, 9):
+		front[row][start+1] = color
+
+	for col in range(start + 1, start + 6):
+		front[2][col] = color
+		front[8][col] = color
+
+def draw_E(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[2][col] = color
+		front[5][col] = color
+		front[8][col] = color
+
+def draw_theta(start, color):
+        # column 1
+        for row in range(2, 8):
+            front[row][start + 1] = color
+        
+        # column 3 to 4
+        for buf in range(3, 5):
+            front[1][start + buf] = color
+            front[2][start + buf] = color
+            
+            front[5][start + buf] = color
+            
+            front[7][start + buf] = color
+            front[8][start + buf] = color
+
+        for row in range(1, 9):
+            front[row][start + 2] = color
+            front[row][start + 5] = color
+
+        # column 6
+        for row in range(2, 8):
+            front[row][start + 6] = color
+
+
+def draw_tau(start, color):
+        ar = [1,2,5,6]
+        # column 1
+        for row in range(1, 3):
+            for i in range(len(ar)):
+                front[row][start + ar[i]] = color
+
+        # middle stem
+        for buf in range(3, 5):
+            for row in range(1, 9):
+                front[row][start + buf] = color
+
+        ar = [0,7]
+        # side details
+        for row in range(2,4):
+            for i in range(len(ar)):
+                front[row][start + ar[i]] = color
+
+        # bottom details
+        ar = [2,5]
+        for i in range(len(ar)):
+            front[8][ar[i]] = color
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
@@ -222,4 +331,5 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RUSH', DARK_RED, YELLOW, 0.1)
+		draw_message(pixels, 'RUSHACEBDFIK', DARK_RED, YELLOW, 0.1)
+		draw_letters(pixels, DARK_RED, YELLOW, 0.8)
