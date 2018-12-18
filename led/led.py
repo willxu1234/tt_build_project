@@ -242,4 +242,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		draw_message(pixels, 'RUSH', DARK_RED, YELLOW, 0.1)
-		draw_letters(pixels, DARK_RED, YELLOW, 0.5)
+		draw_letters(pixels, DARK_RED, YELLOW, 0.8)
