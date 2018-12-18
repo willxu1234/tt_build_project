@@ -12,6 +12,9 @@ PIXEL_COL = 8
 
 # Color constants.
 DARK_RED = Adafruit_WS2801.RGB_to_color(128, 0, 0)
+LIGHT_RED = Adafruit_WS2801.RGB_to_color(255, 0, 0)
+DARK_GREEN = Adafruit_WS2801.RGB_to_color(0, 128, 0)
+LIGHT_GREEN = Adafruit_WS2801.RGB_to_color(0, 255, 0)
 YELLOW = Adafruit_WS2801.RGB_to_color(255, 84, 3)
 
 # Dimensions of a letter.
@@ -194,6 +197,10 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_Q(start * FULL_LETTER, message_color)
 		elif letter == 'X':
 			draw_X(start * FULL_LETTER, message_color)
+		elif letter == '<':
+			draw_rose_left(start * FULL_LETTER)
+		elif letter == '>':
+			draw_rose_right(start * FULL_LETTER)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -620,6 +627,45 @@ def draw_tau(start, color):
         front[8][start + 3] = color
         front[8][start + 5] = color
 
+def draw_rose_left(start):
+	front[3][start + 2] = DARK_RED
+	front[4][start + 2] = DARK_RED
+
+	front[2][start + 3] = LIGHT_RED
+	front[3][start + 3] = DARK_RED
+	front[4][start + 3] = DARK_RED
+	front[5][start + 3] = DARK_RED
+
+	front[2][start + 4] = LIGHT_RED
+	front[3][start + 4] = LIGHT_RED
+	front[4][start + 4] = DARK_RED
+	front[5][start + 4] = DARK_RED
+
+	front[3][start + 5] = LIGHT_RED
+	front[4][start + 5] = DARK_RED
+	front[5][start + 5] = DARK_GREEN
+	front[7][start + 5] = LIGHT_GREEN
+	front[8][start + 5] = LIGHT_GREEN
+
+	front[6][start + 6] = DARK_GREEN
+	front[7][start + 6] = LIGHT_GREEN
+	front[8][start + 6] = DARK_GREEN
+
+def draw_rose_right(start):
+	front[4][start] = LIGHT_GREEN
+	front[5][start] = LIGHT_GREEN
+	front[6][start] = LIGHT_GREEN
+
+	front[4][start + 1] = LIGHT_GREEN
+	front[5][start + 1] = DARK_GREEN
+	front[7][start + 1] = DARK_GREEN
+
+	front[7][start + 2] = DARK_GREEN
+
+	front[8][start + 3] = DARK_GREEN
+
+	front[8][start + 4] = DARK_GREEN
+
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
 	for i in range(pixels.count()):
@@ -635,6 +681,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		# draw_message(pixels, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+=', DARK_RED, YELLOW, 0.1)
-
-		draw_message(pixels, 'GJLNPTWYQX', DARK_RED, YELLOW, 0.4)
+		draw_message(pixels, '<>+=<>', DARK_RED, YELLOW, 0.06)
