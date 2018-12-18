@@ -199,7 +199,7 @@ def draw_theta(start, color):
             front[7][start + buf] = color
             front[8][start + buf] = color
 
-        for row in range(1, 9)
+        for row in range(1, 9):
             front[row][start + 2] = color
             front[row][start + 5] = color
 
@@ -213,7 +213,7 @@ def draw_tau(start, color):
         # column 1
         for row in range(1, 3):
             for i in range(len(ar)):
-            front[row][start + buf] = color
+                front[row][start + ar[i]] = color
 
         # middle stem
         for buf in range(3, 5):
