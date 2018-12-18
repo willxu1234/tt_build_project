@@ -201,4 +201,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, 'RUSH +=', DARK_RED, YELLOW, 0.07)
+		draw_message(pixels, 'RUSH +=', DARK_RED, YELLOW, 0.06)
