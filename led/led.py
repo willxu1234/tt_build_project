@@ -135,6 +135,8 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_C(start * FULL_LETTER, message_color)
 		elif letter == 'E':
 			draw_E(start * FULL_LETTER, message_color)
+		elif letter == 'e':
+			draw_epsilon(start * FULL_LETTER, message_color)
 		elif letter == 'U':
 			draw_U(start * FULL_LETTER, message_color)
 		elif letter == 'S':
@@ -169,6 +171,8 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_theta(start * FULL_LETTER, message_color)
 		elif letter == '=':
 			draw_tau(start * FULL_LETTER, message_color)
+		elif letter == '^':
+			draw_delta(start * FULL_LETTER, message_color)
 		elif letter == 'M':
 			draw_M(start * FULL_LETTER, message_color)
 		elif letter == 'O':
@@ -370,6 +374,20 @@ def draw_E(start, color):
 		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
+
+def draw_epsilon(start, color):
+	for row in range(2, 9):
+		front[row][start + 1] = color
+
+	for col in range(start + 2, start + 6):
+		front[2][col] = color
+		front[8][col] = color
+
+	for col in range(start + 2, start + 5):
+		front[5][col] = color
+
+	front[3][start + 5] = color
+	front[7][start + 5] = color
 
 def draw_G(start, color):
 	for row in range(2, 9):
@@ -631,6 +649,26 @@ def draw_tau(start, color):
         front[8][start + 3] = color
         front[8][start + 5] = color
 
+def draw_delta(start, color):
+	for col in range(start, start + 7):
+		front[8][col] = color
+
+	front[7][start] = color
+	front[7][start + 5] = color
+
+	front[6][start + 1] = color
+	front[5][start + 1] = color
+	front[6][start + 5] = color
+	front[5][start + 5] = color
+		
+	front[3][start + 2] = color
+	front[4][start + 2] = color
+	front[3][start + 4] = color
+	front[4][start + 4] = color
+
+	front[2][start + 3] = color
+	
+
 def draw_rose_left(start):
 	front[3][start + 2] = DARK_RED
 	front[4][start + 2] = DARK_RED
@@ -724,4 +762,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, '<>+=()', DARK_RED, YELLOW, 0.06)
+		draw_message(pixels, '<>+= e^()', DARK_RED, YELLOW, 0.06)
