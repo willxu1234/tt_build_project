@@ -210,6 +210,14 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 			draw_led.draw_ht_mid(start * FULL_LETTER, front)
 		elif letter == '|':
 			draw_led.draw_ht_right(start * FULL_LETTER, front)
+		elif letter == 'b':
+			draw_potion(start * FULL_LETTER, front)
+		elif letter == 'd':
+			draw_potion2(start * FULL_LETTER, front)
+		elif letter == 'f':
+			draw_rocket(start * FULL_LETTER, front)
+		elif letter == 'h':
+			draw_rocket2(start * FULL_LETTER, front)
 		elif letter == ' ':
 			# Draw a full space.
 			pass

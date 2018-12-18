@@ -580,3 +580,73 @@ def draw_ht_right(start, front):
 
 	for row in range(3, 6):
 		front[row][start + 3] = DARK_PURPLE
+
+def draw_potion(start, color, front):
+	front[2][start + 4] = LIGHT_BLUE
+	front[2][start + 5] = LIGHT_BLUE
+	front[3][start + 5] = LIGHT_BLUE
+	front[4][start + 5] = LIGHT_BLUE
+	front[5][start + 4] = LIGHT_BLUE
+	front[5][start + 5] = WHITE
+	front[6][start + 3] = LIGHT_BLUE
+	front[6][start + 4] = WHITE
+	front[6][start + 5] = LIGHT_BLUE
+	front[7][start + 3] = LIGHT_BLUE
+	front[7][start + 4] = LIGHT_BLUE
+	front[7][start + 5] = LIGHT_BLUE
+	front[8][start + 4] = LIGHT_BLUE
+	front[8][start + 5] = LIGHT_BLUE
+
+def draw_potion2(start, color, front):
+	front[2][start + 5-4] = LIGHT_BLUE
+	front[2][start + 5-5] = LIGHT_BLUE
+	front[3][start + 5-5] = LIGHT_BLUE
+	front[4][start + 5-5] = LIGHT_BLUE
+	front[5][start + 5-4] = LIGHT_BLUE
+	front[5][start + 5-5] = LIGHT_BLUE
+	front[6][start + 5-3] = LIGHT_BLUE
+	front[6][start + 5-4] = LIGHT_BLUE
+	front[6][start + 5-5] = LIGHT_BLUE
+	front[7][start + 5-3] = LIGHT_BLUE
+	front[7][start + 5-4] = LIGHT_BLUE
+	front[7][start + 5-5] = LIGHT_BLUE
+	front[8][start + 5-4] = LIGHT_BLUE
+	front[8][start + 5-5] = LIGHT_BLUE
+
+def draw_rocket(start, color, front):
+	front[4][start + 3] = DARK_RED
+	front[4][start + 4] = DARK_RED
+	front[4][start + 5] = DARK_RED
+
+	front[5][start + 1] = BLACK
+	front[5][start + 2] = BLACK
+	front[5][start + 3] = DARK_RED
+	front[5][start + 4] = DARK_RED
+	front[5][start + 5] = LIGHT_BLUE
+	
+	front[6][start + 3] = DARK_RED
+	front[6][start + 4] = DARK_RED
+	front[6][start + 5] = DARK_RED
+
+def draw_rocket2(start, color, front):
+	front[3][start + 3] = DARK_RED
+	front[3][start + 4] = DARK_RED
+
+	front[4][start] = WHITE
+	front[4][start + 1] = WHITE
+	front[4][start + 2] = WHITE
+	front[4][start + 3] = WHITE
+
+	front[5][start] = LIGHT_BLUE
+	front[5][start + 1] = WHITE
+	front[5][start + 2] = DARK_RED
+	front[5][start + 3] = DARK_RED
+	front[5][start + 4] = DARK_RED
+	
+	front[6][start] = WHITE
+	front[6][start + 1] = WHITE
+	front[6][start + 2] = WHITE
+	front[6][start + 3] = WHITE
+
+	front[7][start + 3] = DARK_RED
+	front[7][start + 4] = DARK_RED
