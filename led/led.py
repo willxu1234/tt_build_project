@@ -1,4 +1,5 @@
 import time
+import draw_led
 from copy import deepcopy
 import RPi.GPIO as GPIO
 
@@ -118,97 +119,97 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 	for start in range(1, len(message) + 1):
 		letter = message[start - 1]
 		if letter == 'R':
-			draw_R(start * FULL_LETTER, message_color)
+			draw_led.draw_R(start * FULL_LETTER, message_color)
 		elif letter == 'B':
-			draw_B(start * FULL_LETTER, message_color)
+			draw_led.draw_B(start * FULL_LETTER, message_color)
 		elif letter == 'D':
-			draw_D(start * FULL_LETTER, message_color)
+			draw_led.draw_D(start * FULL_LETTER, message_color)
 		elif letter == 'F':
-			draw_F(start * FULL_LETTER, message_color)
+			draw_led.draw_F(start * FULL_LETTER, message_color)
 		elif letter == 'I':
-			draw_I(start * FULL_LETTER, message_color)
+			draw_led.draw_I(start * FULL_LETTER, message_color)
 		elif letter == 'K':
-			draw_K(start * FULL_LETTER, message_color)
+			draw_led.draw_K(start * FULL_LETTER, message_color)
 		elif letter == 'A':
-			draw_A(start * FULL_LETTER, message_color)
+			draw_led.draw_A(start * FULL_LETTER, message_color)
 		elif letter == 'C':
-			draw_C(start * FULL_LETTER, message_color)
+			draw_led.draw_C(start * FULL_LETTER, message_color)
 		elif letter == 'E':
-			draw_E(start * FULL_LETTER, message_color)
+			draw_led.draw_E(start * FULL_LETTER, message_color)
 		elif letter == 'e':
-			draw_epsilon(start * FULL_LETTER, message_color)
+			draw_led.draw_epsilon(start * FULL_LETTER, message_color)
 		elif letter == 'U':
-			draw_U(start * FULL_LETTER, message_color)
+			draw_led.draw_U(start * FULL_LETTER, message_color)
 		elif letter == 'S':
-			draw_S(start * FULL_LETTER, message_color)
+			draw_led.draw_S(start * FULL_LETTER, message_color)
 		elif letter == 'H':
-			draw_H(start * FULL_LETTER, message_color)
+			draw_led.draw_H(start * FULL_LETTER, message_color)
 		elif letter == '0':
-			draw_zero(start * FULL_LETTER, message_color)
+			draw_led.draw_zero(start * FULL_LETTER, message_color)
 		elif letter == '1':
-			draw_one(start * FULL_LETTER, message_color)
+			draw_led.draw_one(start * FULL_LETTER, message_color)
 		elif letter == '2':
-			draw_two(start * FULL_LETTER, message_color)
+			draw_led.draw_two(start * FULL_LETTER, message_color)
 		elif letter == '3':
-			draw_three(start * FULL_LETTER, message_color)
+			draw_led.draw_three(start * FULL_LETTER, message_color)
 		elif letter == '4':
-			draw_four(start * FULL_LETTER, message_color)
+			draw_led.draw_four(start * FULL_LETTER, message_color)
 		elif letter == '5':
-			draw_five(start * FULL_LETTER, message_color)
+			draw_led.draw_five(start * FULL_LETTER, message_color)
 		elif letter == '6':
-			draw_six(start * FULL_LETTER, message_color)
+			draw_led.draw_six(start * FULL_LETTER, message_color)
 		elif letter == '7':
-			draw_seven(start * FULL_LETTER, message_color)
+			draw_led.draw_seven(start * FULL_LETTER, message_color)
 		elif letter == '8':
-			draw_eight(start * FULL_LETTER, message_color)
+			draw_led.draw_eight(start * FULL_LETTER, message_color)
 		elif letter == '9':
-			draw_nine(start * FULL_LETTER, message_color)
+			draw_led.draw_nine(start * FULL_LETTER, message_color)
 		elif letter == '!':
-			draw_exclamation(start * FULL_LETTER, message_color)
+			draw_led.draw_exclamation(start * FULL_LETTER, message_color)
 		elif letter == '.':
-			draw_period(start * FULL_LETTER, message_color)
+			draw_led.draw_period(start * FULL_LETTER, message_color)
 		elif letter == '+':
-			draw_theta(start * FULL_LETTER, message_color)
+			draw_led.draw_theta(start * FULL_LETTER, message_color)
 		elif letter == '=':
-			draw_tau(start * FULL_LETTER, message_color)
+			draw_led.draw_tau(start * FULL_LETTER, message_color)
 		elif letter == '^':
-			draw_delta(start * FULL_LETTER, message_color)
+			draw_led.draw_delta(start * FULL_LETTER, message_color)
 		elif letter == 'M':
-			draw_M(start * FULL_LETTER, message_color)
+			draw_led.draw_M(start * FULL_LETTER, message_color)
 		elif letter == 'O':
-			draw_O(start * FULL_LETTER, message_color)
+			draw_led.draw_O(start * FULL_LETTER, message_color)
 		elif letter == 'V':
-			draw_V(start * FULL_LETTER, message_color)
+			draw_led.draw_V(start * FULL_LETTER, message_color)
 		elif letter == 'Z':
-			draw_Z(start * FULL_LETTER, message_color)
+			draw_led.draw_Z(start * FULL_LETTER, message_color)
 		elif letter == 'G':
-			draw_G(start * FULL_LETTER, message_color)
+			draw_led.draw_G(start * FULL_LETTER, message_color)
 		elif letter == 'J':
-			draw_J(start * FULL_LETTER, message_color)
+			draw_led.draw_J(start * FULL_LETTER, message_color)
 		elif letter == 'L':
-			draw_L(start * FULL_LETTER, message_color)
+			draw_led.draw_L(start * FULL_LETTER, message_color)
 		elif letter == 'N':
-			draw_N(start * FULL_LETTER, message_color)
+			draw_led.draw_N(start * FULL_LETTER, message_color)
 		elif letter == 'P':
-			draw_P(start * FULL_LETTER, message_color)
+			draw_led.draw_P(start * FULL_LETTER, message_color)
 		elif letter == 'T':
-			draw_T(start * FULL_LETTER, message_color)
+			draw_led.draw_T(start * FULL_LETTER, message_color)
 		elif letter == 'W':
-			draw_W(start * FULL_LETTER, message_color)
+			draw_led.draw_W(start * FULL_LETTER, message_color)
 		elif letter == 'Y':
-			draw_Y(start * FULL_LETTER, message_color)
+			draw_led.draw_Y(start * FULL_LETTER, message_color)
 		elif letter == 'Q':
-			draw_Q(start * FULL_LETTER, message_color)
+			draw_led.draw_Q(start * FULL_LETTER, message_color)
 		elif letter == 'X':
-			draw_X(start * FULL_LETTER, message_color)
+			draw_led.draw_X(start * FULL_LETTER, message_color)
 		elif letter == '<':
-			draw_rose_left(start * FULL_LETTER)
+			draw_led.draw_rose_left(start * FULL_LETTER)
 		elif letter == '>':
-			draw_rose_right(start * FULL_LETTER)
+			draw_led.draw_rose_right(start * FULL_LETTER)
 		elif letter == '(':
-			draw_reverse_rose_left(start * FULL_LETTER)
+			draw_led.draw_reverse_rose_left(start * FULL_LETTER)
 		elif letter == ')':
-			draw_reverse_rose_right(start * FULL_LETTER)
+			draw_led.draw_reverse_rose_right(start * FULL_LETTER)
 		elif letter == ' ':
 			# Draw a full space.
 			pass
@@ -218,534 +219,6 @@ def draw_message(pixels, message, message_color, background_color, wait=0.5):
 
 	#TODO: Create a loop that shifts everything over.
 	draw_scrolling(pixels, wait)
-
-# Assumes that the height is 7 and width of each letter is 5. Adds the word to the matrix at start.
-def draw_R(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-
-	front[2][start + 2] = color
-	front[5][start + 2] = color
-
-	front[2][start + 3] = color
-	front[5][start + 3] = color
-	front[6][start + 3] = color
-
-	front[2][start + 4] = color
-	front[5][start + 4] = color
-	front[7][start + 4] = color
-
-	for row in range(2, 6):
-		front[row][start + 5] = color
-	front[8][start + 5] = color
-
-def draw_U(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	for col in range(start + 2, start + 5):
-		front[8][col] = color
-
-def draw_S(start, color):
-	for row in range(2, 6):
-		front[row][start + 1] = color
-	front[8][start + 1] = color
-
-	for col in range(start + 2, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-	for row in range(6, 9):
-		front[row][start + 5] = color
-
-def draw_H(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	for col in range(start + 2, start + 5):
-		front[5][col] = color
-
-def draw_A(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	for col in range(start + 2, start + 5):
-		front[2][col] = color
-		front[5][col] = color
-
-def draw_B(start, color):
-	for row in range(2,9):
-		front[row][start + 1] = color
-	for num in range(2, 5):
-		front[2][start + num] = color
-		front[5][start + num] = color
-		front[8][start + num] = color
-	front[3][start + 5] = color
-	front[4][start + 5] = color
-	front[6][start + 5] = color
-	front[7][start + 5] = color
-
-def draw_D(start, color):
-	for row in range(2,9):
-		front[row][start + 1] = color
-	for num in range(2,5):
-		front[2][start + num] = color
-		front[8][start + num] = color
-	for row in range(3,8):
-		front[row][start + 5] = color
-
-def draw_F(start, color):
-	for row in range(2,9):
-		front[row][start + 1] = color
-	for num in range(2,5):
-		front[2][start + num] = color
-		front[5][start + num] = color
-
-def draw_I(start, color):
-	for row in range(3,8):
-		front[row][start + 3] = color
-	for num in range(1,6):
-		front[2][start + num] = color
-		front[8][start + num] = color
-
-def draw_K(start, color):
-	for row in range(2,9):
-		front[row][start + 1] = color
-	front[5][start + 2] = color
-	front[4][start + 3] = color
-	front[3][start + 4] = color
-	front[2][start + 5] = color
-	front[6][start + 3] = color
-	front[7][start + 4] = color
-	front[8][start + 5] = color
-
-def draw_M(start, color):
-	for row in range(2,9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-	front[3][start + 2] = color
-	front[4][start + 3] = color
-	front[3][start + 4] = color
-
-def draw_O(start, color):
-	for row in range(2,9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-	for num in range(2,5):
-		front[2][start + num] = color
-		front[8][start + num] = color
-
-def draw_V(start, color):
-	for row in range(2,6):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-	front[7][start + 2] = color
-	front[8][start + 3] = color
-	front[7][start + 4] = color
-
-def draw_Z(start, color):
-	for num in range(1,6):
-		front[2][start + num] = color
-		front[8][start + num] = color
-	front[3][start + 5] = color
-	front[4][start + 4] = color
-	front[5][start + 3] = color
-	front[6][start + 2] = color
-	front[7][start + 1] = color
-
-
-def draw_C(start, color):
-	for row in range(2, 9):
-		front[row][start+1] = color
-
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-		front[8][col] = color
-
-def draw_E(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-
-	for col in range(start + 2, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-def draw_epsilon(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-
-	for col in range(start + 2, start + 6):
-		front[2][col] = color
-		front[8][col] = color
-
-	for col in range(start + 2, start + 5):
-		front[5][col] = color
-
-	front[3][start + 5] = color
-	front[7][start + 5] = color
-
-def draw_G(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-	for row in range(7, 9):
-		front[row][start + 5] = color
-	for col in range(start + 2, start + 5):
-		front[2][col] = color
-		front[8][col] = color
-
-	front[3][start + 5] = color
-	front[7][start + 5] = color
-	front[6][start + 5] = color
-	front[5][start + 4] = color
-
-def draw_Y(start,color):
-	for row in range(4, 9):
-		front[row][start + 3] = color
-
-	front[2][start + 1] = color
-	front[3][start + 2] = color
-	front[3][start + 4] = color
-	front[2][start + 5] = color
-
-def draw_W(start,color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	front[6][start + 2] = color
-	front[6][start + 4] = color
-	front[5][start + 3] = color
-
-def draw_T(start, color):
-	for row in range(2, 9):
-		front[row][start + 3] = color
-
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-
-	for row in range(6, 9):
-		front[row][start + 5] = color
-
-def draw_P(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-
-	for col in range(start + 2, start + 5):
-		front[2][col] = color
-		front[6][col] = color
-
-	for row in range(3, 6):
-		front[row][start + 5] = color
-
-def draw_N(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	front[4][start + 2] = color
-	front[5][start + 3] = color
-	front[6][start + 4] = color
-
-def draw_L(start, color):
-	for row in range(2, 9):
-		front[row][start + 1] = color
-
-	for col in range(start + 2, start + 6):
-		front[8][col] = color
-
-def draw_X(start, color):
-	for row in range(2, 4):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	for row in range(7, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-	front[4][start + 2] = color
-	front[6][start + 2] = color
-	front[4][start + 4] = color
-	front[6][start + 4] = color
-	front[5][start + 3] = color
-
-def draw_Q(start, color):
-	for row in range(3, 8):
-		front[row][start + 1] = color
-
-	for col in range(start + 2, start + 5):
-		front[2][col] = color
-
-	for row in range(3, 7):
-		front[row][start + 5] = color
-
-	front[8][start + 2] = color
-	front[8][start + 3] = color
-	front[6][start + 3] = color
-	front[7][start + 4] = color
-	front[8][start + 5] = color
-
-def draw_J(start, color):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-
-	for row in range(3, 9):
-		front[row][start + 3] = color
-
-	front[8][start + 2] = color
-	front[8][start + 1] = color
-	front[7][start + 1] = color
-	front[6][start + 1] = color
-def draw_exclamation(start, color):
-	for row in range(2, 7):
-		front[row][start + 1] = color
-	front[8][start + 1] = color
-
-def draw_period(start, color):
-	front[8][start + 1] = color
-
-def draw_zero(start, color):
-	for row in range(3, 8):
-		 front[row][start + 1] = color
-		 front[row][start + 5] = color
-
-	for col in range(start + 2, start + 5):
-		front[2][col] = color
-		front[8][col] = color
-
-	front[6][start + 2] = color
-	front[5][start + 3] = color
-	front[4][start + 4] = color
-
-def draw_one(start, color):
-	front[3][start + 2] = color
-	for row in range(2, 8):
-		front[row][start + 3] = color
-
-	for col in range(start + 2, start + 5):
-		front[8][col] = color
-
-def draw_two(start, color):
-	for row in range(2, 6):
-		front[row][start + 5] = color
-	front[8][start + 5] = color
-
-	for col in range(start + 2, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-	for row in range(6, 9):
-		front[row][start + 1] = color
-
-def draw_three(start, color):
-	for row in range(2, 9):
-		front[row][start + 5] = color
-
-	for col in range(start + 2, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-def draw_four(start, color):
-	for row in range(2, 6):
-		front[row][start + 1] = color
-
-	for row in range(2, 9):
-		front[row][start + 5] = color
-
-	for col in range(start + 2, start + 5):
-		front[5][col] = color
-
-def draw_five(start, color):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-
-	for row in range(3, 6):
-		front[row][start + 1] = color
-
-	for col in range(start + 2, start + 6):
-		front[5][col] = color
-
-	for col in range(start + 2, start + 5):
-		front[8][col] = color
-	front[7][start + 1] = color
-
-	for row in range(5, 8):
-		front[row][start + 5] = color
-
-def draw_six(start, color):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-	for row in range(2, 8):
-		front[row][start + 1] = color
-
-	for row in range(6, 8):
-		front[row][start + 5] = color
-
-def draw_seven(start, color):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-
-	front[8][start + 1] = color
-	front[7][start + 1] = color
-	front[6][start + 2] = color
-	front[5][start + 3] = color
-	front[4][start + 4] = color
-	front[3][start + 5] = color
-
-def draw_eight(start, color):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-	for row in range(2, 8):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-
-def draw_nine(start, color):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-	for row in range(2, 6):
-		front[row][start + 1] = color
-
-	for row in range(2, 8):
-		front[row][start + 5] = color
-
-def draw_theta(start, color):
-        # column 1
-        ar = [2,6]
-        for row in range(3, 8):
-            for i in range(len(ar)):
-                front[row][start + ar[i]] = color
-
-        ar_row = [2,5,8]
-        # column 3 to 4
-	for i in range(len(ar_row)):
-            for col in range(3,6):
-                front[ar_row[i]][start + col] = color
-
-
-def draw_tau(start, color):
-        for col in range(2,7):
-            front[2][start + col] = color
-        for row in range(3,9):
-            front[row][start + 4] = color
-        # serif details
-        front[3][start + 2] = color
-        front[3][start + 6] = color
-
-        front[8][start + 3] = color
-        front[8][start + 5] = color
-
-def draw_delta(start, color):
-	for col in range(start, start + 7):
-		front[8][col] = color
-
-	front[7][start] = color
-	front[7][start + 5] = color
-
-	front[6][start + 1] = color
-	front[5][start + 1] = color
-	front[6][start + 5] = color
-	front[5][start + 5] = color
-		
-	front[3][start + 2] = color
-	front[4][start + 2] = color
-	front[3][start + 4] = color
-	front[4][start + 4] = color
-
-	front[2][start + 3] = color
-	
-
-def draw_rose_left(start):
-	front[3][start + 2] = DARK_RED
-	front[4][start + 2] = DARK_RED
-
-	front[2][start + 3] = LIGHT_RED
-	front[3][start + 3] = DARK_RED
-	front[4][start + 3] = DARK_RED
-	front[5][start + 3] = DARK_RED
-
-	front[2][start + 4] = LIGHT_RED
-	front[3][start + 4] = LIGHT_RED
-	front[4][start + 4] = DARK_RED
-	front[5][start + 4] = DARK_RED
-
-	front[3][start + 5] = LIGHT_RED
-	front[4][start + 5] = DARK_RED
-	front[5][start + 5] = DARK_GREEN
-	front[7][start + 5] = LIGHT_GREEN
-	front[8][start + 5] = LIGHT_GREEN
-
-	front[6][start + 6] = DARK_GREEN
-	front[7][start + 6] = LIGHT_GREEN
-	front[8][start + 6] = DARK_GREEN
-
-def draw_reverse_rose_right(start):
-	front[3][start + 4] = DARK_RED
-	front[4][start + 4] = DARK_RED
-
-	front[2][start + 3] = LIGHT_RED
-	front[3][start + 3] = DARK_RED
-	front[4][start + 3] = DARK_RED
-	front[5][start + 3] = DARK_RED
-
-	front[2][start + 2] = LIGHT_RED
-	front[3][start + 2] = LIGHT_RED
-	front[4][start + 2] = DARK_RED
-	front[5][start + 2] = DARK_RED
-
-	front[3][start + 1] = LIGHT_RED
-	front[4][start + 1] = DARK_RED
-	front[5][start + 1] = DARK_GREEN
-	front[7][start + 1] = LIGHT_GREEN
-	front[8][start + 1] = LIGHT_GREEN
-
-	front[6][start] = DARK_GREEN
-	front[7][start] = LIGHT_GREEN
-	front[8][start] = DARK_GREEN
-
-def draw_rose_right(start):
-	front[4][start] = LIGHT_GREEN
-	front[5][start] = LIGHT_GREEN
-	front[6][start] = LIGHT_GREEN
-
-	front[4][start + 1] = LIGHT_GREEN
-	front[5][start + 1] = DARK_GREEN
-	front[7][start + 1] = DARK_GREEN
-
-	front[7][start + 2] = DARK_GREEN
-
-	front[8][start + 3] = DARK_GREEN
-
-	front[8][start + 4] = DARK_GREEN
-
-def draw_reverse_rose_left(start):
-	front[8][start + 2] = DARK_GREEN
-
-	front[8][start + 3] = DARK_GREEN
-
-	front[7][start + 4] = DARK_GREEN
-
-	front[4][start + 5] = LIGHT_GREEN
-	front[5][start + 5] = DARK_GREEN
-	front[7][start + 5] = DARK_GREEN
-
-	front[4][start + 6] = LIGHT_GREEN
-	front[5][start + 6] = LIGHT_GREEN
-	front[6][start + 6] = LIGHT_GREEN
 
 # Sets the colors of one side of the wood panel to red and everything else to green.
 def one_side(pixels):
