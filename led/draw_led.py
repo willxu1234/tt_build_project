@@ -1,3 +1,5 @@
+from led_colors import *
+
 # Assumes that the height is 7 and width of each letter is 5. Adds the word to the matrix at start.
 def draw_R(start, color):
 	for row in range(2, 9):
