@@ -217,9 +217,21 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 			draw_led.draw_ht_mid(start * FULL_LETTER, front)
 		elif letter == '|':
 			draw_led.draw_ht_right(start * FULL_LETTER, front)
-		elif letter == 'o': # alt + 4
+		elif letter == 'a': 
+			draw_led.draw_plant_left(start * FULL_LETTER, front) 
+		elif letter == 'c': 
+			draw_led.draw_plant_right(start * FULL_LETTER, front) 
+		elif letter == 'm': 
+			draw_led.draw_dna_left(start * FULL_LETTER, front)
+		elif letter == 'g':
+			draw_led.draw_dna_right(start * FULL_LETTER, front) 
+		elif letter == 'i':
+			draw_led.draw_build_left(start * FULL_LETTER, front)
+		elif letter == 'k': 
+			draw_led.draw_build_right(start * FULL_LETTER, front) 
+		elif letter == 'o':
 			draw_led.draw_zero(start * FULL_LETTER, LIGHT_GREEN, front)
-		elif letter == 'l': # alt + 1
+		elif letter == 'l':
 			draw_led.draw_one(start * FULL_LETTER, LIGHT_GREEN, front)
 		elif letter == ' ':
 			# Draw a full space.
@@ -265,4 +277,5 @@ if __name__ == "__main__":
 	while True:
 		# += are reserved chars for Theta Tau symbols
 		# draw_message(pixels, '<>+=;:|e^()', DARK_RED, YELLOW, 0.06)
+		# draw_message(pixels, 'acmgik', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), 0.06)
 		draw_message(pixels, '<>+=;:|e^() ololll', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), True, 0.06)

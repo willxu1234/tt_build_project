@@ -69,5 +69,11 @@ then make a pull request and Will will approve it.
 ;:| is a hammer and tongs
 o is a binary 0
 l is a binary 1
+e is epsilon
+^ is delta
+
+ac is plant
+mg is DNA
+ik is building
 
 We also have A-Z and 0-9, with . and ! as punctuation.
