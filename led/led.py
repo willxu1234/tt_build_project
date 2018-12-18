@@ -193,7 +193,6 @@ def draw_theta(start, color):
             front[1][start + buf] = color
             front[2][start + buf] = color
             
-            front[4][start + buf] = color
             front[5][start + buf] = color
             
             front[7][start + buf] = color
