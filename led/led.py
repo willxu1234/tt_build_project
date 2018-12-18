@@ -308,7 +308,7 @@ def draw_zero(start, color):
 		 front[row][start + 5] = color
 
 	for col in range(start + 2, start + 5):
-		front[1][col] = color
+		front[2][col] = color
 		front[8][col] = color
 
 	front[6][start + 2] = color
@@ -352,29 +352,30 @@ def draw_four(start, color):
 	for row in range(2, 9):
 		front[row][start + 5] = color
 
-	for col in range(start + 3, start + 5):
+	for col in range(start + 2, start + 5):
 		front[5][col] = color
 
 def draw_five(start, color):
 	for col in range(start + 1, start + 6):
-		front[1][col] = color
+		front[2][col] = color
 
-	for row in range(2, 6):
+	for row in range(3, 6):
 		front[row][start + 1] = color
 
 	front[4][start + 2] = color
+	for col in range(start + 2, start + 6):
+		front[5][col] = color
+
 	for col in range(start + 2, start + 5):
-		front[3][col] = color
 		front[8][col] = color
-
-	for row in range(4, 8):
-		front[row][start + 5] = color
-
 	front[7][start + 1] = color
+
+	for row in range(5, 8):
+		front[row][start + 5] = color
 
 def draw_six(start, color):
 	for col in range(start + 1, start + 6):
-		front[1][col] = color
+		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
 
@@ -386,19 +387,18 @@ def draw_six(start, color):
 
 def draw_seven(start, color):
 	for col in range(start + 1, start + 6):
-		front[1][col] = color
+		front[2][col] = color
 
 	front[8][start + 1] = color
 	front[7][start + 1] = color
 	front[6][start + 2] = color
-	front[5][start + 2] = color
-	front[4][start + 3] = color
-	front[3][start + 4] = color
-	front[2][start + 5] = color
+	front[5][start + 3] = color
+	front[4][start + 4] = color
+	front[3][start + 5] = color
 
 def draw_eight(start, color):
 	for col in range(start + 1, start + 6):
-		front[1][col] = color
+		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
 
@@ -408,7 +408,7 @@ def draw_eight(start, color):
 
 def draw_nine(start, color):
 	for col in range(start + 1, start + 6):
-		front[1][col] = color
+		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
 
@@ -479,5 +479,5 @@ if __name__ == "__main__":
 	one_side(pixels)
 	time.sleep(0.5)
 	while True:
-		draw_message(pixels, 'RUSHACEBDFIK', DARK_RED, YELLOW, 0.1)
+		draw_message(pixels, '.!0123456789', DARK_RED, YELLOW, 0.1)
 		draw_letters(pixels, DARK_RED, YELLOW, 0.8)
