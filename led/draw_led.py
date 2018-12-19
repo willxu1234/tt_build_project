@@ -209,9 +209,6 @@ def draw_T(start, color, front):
 	for col in range(start + 1, start + 6):
 		front[2][col] = color
 
-	for row in range(6, 9):
-		front[row][start + 5] = color
-
 def draw_P(start, color, front):
 	for row in range(2, 9):
 		front[row][start + 1] = color
