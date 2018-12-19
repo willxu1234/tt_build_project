@@ -284,4 +284,4 @@ if __name__ == "__main__":
 	time.sleep(0.5)
 	while True:
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, '<>+=;:|e^() bdfh', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), True, 0.06)
+		draw_message(pixels, 'KYLE IS A STUD', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), True, 0.06)
