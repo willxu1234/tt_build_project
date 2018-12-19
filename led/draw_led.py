@@ -121,7 +121,7 @@ def draw_O(start, color, front):
 		front[8][start + num] = color
 
 def draw_V(start, color, front):
-	for row in range(2,6):
+	for row in range(2,7):
 		front[row][start + 1] = color
 		front[row][start + 5] = color
 	front[7][start + 2] = color
@@ -173,24 +173,23 @@ def draw_epsilon(start, color, front):
 def draw_G(start, color, front):
 	for row in range(2, 9):
 		front[row][start + 1] = color
-	for row in range(7, 9):
+	for row in range(5, 9):
 		front[row][start + 5] = color
 	for col in range(start + 2, start + 5):
 		front[2][col] = color
 		front[8][col] = color
-
-	front[3][start + 5] = color
-	front[7][start + 5] = color
-	front[6][start + 5] = color
-	front[5][start + 4] = color
+	for col in range(start + 4, start + 6):
+		front[5][col] = color
 
 def draw_Y(start,color, front):
-	for row in range(4, 9):
+	for row in range(5, 9):
 		front[row][start + 3] = color
 
 	front[2][start + 1] = color
-	front[3][start + 2] = color
-	front[3][start + 4] = color
+	front[3][start + 1] = color
+	front[4][start + 2] = color
+	front[4][start + 4] = color
+	front[3][start + 5] = color
 	front[2][start + 5] = color
 
 def draw_W(start,color, front):
@@ -215,9 +214,9 @@ def draw_P(start, color, front):
 
 	for col in range(start + 2, start + 5):
 		front[2][col] = color
-		front[6][col] = color
+		front[5][col] = color
 
-	for row in range(3, 6):
+	for row in range(3, 5):
 		front[row][start + 5] = color
 
 def draw_N(start, color, front):
@@ -272,12 +271,13 @@ def draw_J(start, color, front):
 		front[2][col] = color
 
 	for row in range(3, 9):
-		front[row][start + 3] = color
+		front[row][start + 5] = color
+	
+	for col in range(start + 2, start + 5):
+		front[8][col] = color
 
-	front[8][start + 2] = color
-	front[8][start + 1] = color
 	front[7][start + 1] = color
-	front[6][start + 1] = color
+
 def draw_exclamation(start, color, front):
 	for row in range(2, 7):
 		front[row][start + 1] = color
