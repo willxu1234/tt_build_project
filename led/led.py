@@ -283,16 +283,15 @@ def one_side(pixels):
 if __name__ == "__main__":
 	pixels.clear()	
 	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.05)
-	time.sleep(3)
-	ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
-	if 0 < len(ip) < 20:
-		draw_message(pixels, "IP: ", YELLOW, BLACK, True, 0.05)
-		draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
-	else:
-		draw_message(pixels, "NO IP ASSIGNED.", LIGHT_RED, BLACK, True, 0.05)
-	time.sleep(0.5)
-	
+	no_ip = True
+
 	while True:
+		if no_ip:
+			ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
+			if 0 < len(ip) < 20:
+				no_ip = False
+				draw_message(pixels, "IP FOUND: ", YELLOW, BLACK, True, 0.05)
+				draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
 		value = random.randint(0,4)
 		# += are reserved chars for Theta Tau symbols
 		if value == 0:
