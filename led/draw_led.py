@@ -432,7 +432,7 @@ def draw_delta(start, color, front):
 		front[8][col] = color
 
 	front[7][start] = color
-	front[7][start + 5] = color
+	front[7][start + 6] = color
 
 	front[6][start + 1] = color
 	front[5][start + 1] = color
@@ -673,20 +673,20 @@ def draw_build_right(start, front):
 	front[8][start + 3] = YELLOW 
 
 def draw_potion(start, front):
-	front[2][start + 4] = LIGHT_BLUE
 	front[2][start + 5] = LIGHT_BLUE
-	front[3][start + 5] = LIGHT_BLUE
-	front[4][start + 5] = LIGHT_BLUE
-	front[5][start + 4] = LIGHT_BLUE
-	front[5][start + 5] = WHITE
-	front[6][start + 3] = LIGHT_BLUE
-	front[6][start + 4] = WHITE
-	front[6][start + 5] = LIGHT_BLUE
-	front[7][start + 3] = LIGHT_BLUE
+	front[2][start + 6] = LIGHT_BLUE
+	front[3][start + 6] = LIGHT_BLUE
+	front[4][start + 6] = LIGHT_BLUE
+	front[5][start + 5] = LIGHT_BLUE
+	front[5][start + 6] = WHITE
+	front[6][start + 4] = LIGHT_BLUE
+	front[6][start + 5] = WHITE
+	front[6][start + 6] = LIGHT_BLUE
 	front[7][start + 4] = LIGHT_BLUE
 	front[7][start + 5] = LIGHT_BLUE
-	front[8][start + 4] = LIGHT_BLUE
+	front[7][start + 6] = LIGHT_BLUE
 	front[8][start + 5] = LIGHT_BLUE
+	front[8][start + 6] = LIGHT_BLUE
  
 def draw_potion2(start, front):
 	front[2][start + 1] = LIGHT_BLUE

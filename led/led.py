@@ -1,4 +1,6 @@
 import time
+import subprocess
+import random
 import draw_led
 from led_colors import *
 from copy import deepcopy
@@ -280,8 +282,21 @@ def one_side(pixels):
 
 if __name__ == "__main__":
 	pixels.clear()
-	one_side(pixels)
+	ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
+	draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
 	time.sleep(0.5)
+	
 	while True:
+		value = random.randint(0,4)
 		# += are reserved chars for Theta Tau symbols
-		draw_message(pixels, 'JYTVGABP', DARK_RED, Adafruit_WS2801.RGB_to_color(0, 0, 0), True, 0.1)
+		if value == 0:
+			draw_message(pixels, '<>RUSH +=()', DARK_RED, BLACK, True, 0.05)
+		elif value == 1:
+			draw_message(pixels, 'e^', YELLOW, BLACK, True, 0.08)
+			draw_message(pixels, 'CHAPTER', DARK_RED, BLACK, True, 0.08)
+		elif value == 2:
+ 			draw_message(pixels, "ENGINEERING AND MATH CS!", WHITE, BLACK, True, 0.08)
+		elif value == 3:
+			draw_message(pixels, "ololacmgbdfh", DARK_RED, BLACK, True, 0.09)
+		elif value == 4:
+			draw_message(pixels, '<>();:|<>()', DARK_RED, BLACK, True, 0.05)
