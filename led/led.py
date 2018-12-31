@@ -292,7 +292,7 @@ if __name__ == "__main__":
 				no_ip = False
 				draw_message(pixels, "IP FOUND. ", YELLOW, BLACK, True, 0.05)
 				draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
-		value = random.randint(0,4)
+		value = random.randint(0,8)
 		# += are reserved chars for Theta Tau symbols
 		if value == 0:
 			draw_message(pixels, '<>RUSH +=()', DARK_RED, BLACK, True, 0.05)
@@ -300,8 +300,19 @@ if __name__ == "__main__":
 			draw_message(pixels, 'e^', YELLOW, BLACK, True, 0.08)
 			draw_message(pixels, 'CHAPTER', DARK_RED, BLACK, True, 0.08)
 		elif value == 2:
- 			draw_message(pixels, "ENGINEERING AND MATH CS!", WHITE, BLACK, True, 0.08)
+ 			draw_message(pixels, "NOW ACCEPTING MATH CS AND DATA SCIENCE!", WHITE, BLACK, True, 0.08)
 		elif value == 3:
+			# Display sprites
 			draw_message(pixels, "ololacmgbdfh", DARK_RED, BLACK, True, 0.09)
 		elif value == 4:
 			draw_message(pixels, '<>();:|<>()', DARK_RED, BLACK, True, 0.05)
+		elif value == 5:
+			draw_message(pixels, 'PREMIER ENGINEERING FRATERNITY AT UCSD', YELLOW, BLACK, True, 0.05)
+		elif value == 6:
+			draw_message(pixels, 'COME CHECK US OUT AT RUSH!', DARK_RED, BLACK, True, 0.05)
+		elif value == 7:
+			draw_message(pixels, 'MEET THE BROTHERS!', YELLOW, BLACK, True, 0.05)
+		elif value == 8:
+			draw_message(pixels, 'BROTHERHOOD', YELLOW, BLACK, True, 0.07)
+			draw_message(pixels, 'PHILANTHROPY', LIGHT_GREEN, BLACK, True, 0.07)
+			draw_message(pixels, 'PROFESSIONALISM', LIGHT_RED, BLACK, True, 0.07)
