@@ -281,9 +281,15 @@ def one_side(pixels):
 	pixels.show()
 
 if __name__ == "__main__":
-	pixels.clear()
+	pixels.clear()	
+	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.05)
+	time.sleep(3)
 	ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
-	draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
+	if 0 < len(ip) < 20:
+		draw_message(pixels, "IP: ", YELLOW, BLACK, True, 0.05)
+		draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
+	else:
+		draw_message(pixels, "NO IP ASSIGNED.", LIGHT_RED, BLACK, True, 0.05)
 	time.sleep(0.5)
 	
 	while True:
