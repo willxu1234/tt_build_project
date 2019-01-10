@@ -1,4 +1,5 @@
 import time
+import socket
 import subprocess
 import random
 import draw_led
@@ -287,11 +288,15 @@ if __name__ == "__main__":
 
 	while True:
 		if no_ip:
-			ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
-			if 0 < len(ip) < 20:
+			try:
+				ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
+				socket.inet_aton(ip)
 				no_ip = False
 				draw_message(pixels, "IP FOUND. ", YELLOW, BLACK, True, 0.05)
 				draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
+			except socket.error:
+				# No ip address found yet
+				pass
 		value = random.randint(0,8)
 		# += are reserved chars for Theta Tau symbols
 		if value == 0:
