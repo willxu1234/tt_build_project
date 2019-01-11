@@ -92,6 +92,33 @@ def draw_scrolling(pixels, rainbow=True, wait=0.5):
 		draw_matrices(pixels, start, rainbow)
 		time.sleep(wait)
 
+def draw_snake(pixels, color, rainbow=True, wait=0.08):
+	global front
+	del front[:]
+	# Use up entire front space
+	front = [[] for r in range(PIXEL_ROW)]
+	for row in front:
+		for c in range( PIXEL_COL ):
+			row.append( BLACK )
+
+	for row_pair_index in range(PIXEL_ROW / 2):
+		top_row = row_pair_index * 2
+		for col in range(PIXEL_COL):
+			front[top_row][col] = color
+			if rainbow:
+				augment_hue()
+			draw_matrices(pixels, 0, rainbow)
+			time.sleep(wait)
+
+		bot_row = row_pair_index * 2 + 1
+		for col in range(PIXEL_COL - 1, -1, -1):
+			front[bot_row][col] = color
+			if rainbow:
+				augment_hue()
+			draw_matrices(pixels, 0, rainbow)
+			time.sleep(wait)
+	
+
 # Paints the front of the matrix with the rainbow of the back.
 # wait_between is the seconds between each rendering.
 # duration is the total amount of the time for this display to be up.
@@ -204,8 +231,9 @@ def one_side(pixels):
 
 if __name__ == "__main__":
 	pixels.clear()
-	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.15)
 
+
+	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.15)
 
 	no_ip = True
 
@@ -223,7 +251,7 @@ if __name__ == "__main__":
 		value = random.randint(0,9)
 		# += are reserved chars for Theta Tau symbols
 		if value == 0:
-			draw_message(pixels, '<>RUSH +=()', DARK_RED, BLACK, True, 0.15)
+			draw_message(pixels, '<>RUSH +=()', DARK_RED, BLACK, False, 0.15)
 		elif value == 1:
 			draw_message(pixels, 'e^', YELLOW, BLACK, True, 0.15)
 			draw_message(pixels, 'CHAPTER', DARK_RED, BLACK, True, 0.15)
@@ -247,3 +275,5 @@ if __name__ == "__main__":
 		elif value == 9:
 			# Display a rainbow display on the front for 10 seconds.
 			rainbow_front(pixels, wait_between=0.005, duration=5)
+		elif value == 10:		
+			draw_snake(pixels, DARK_RED, True)
