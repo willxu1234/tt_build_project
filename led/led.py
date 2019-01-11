@@ -88,11 +88,11 @@ def draw_scrolling(pixels, rainbow=True, wait=0.5):
 
 # Paints the front of the matrix with the rainbow of the back.
 # wait_between is the seconds between each rendering.
-# time is the total amount of the time for this display to be up.
-def rainbow_front(pixels, wait_between=0.03, time=5):
+# duration is the total amount of the time for this display to be up.
+def rainbow_front(pixels, wait_between=0.03, duration=5):
 	global front
-	iter = int(time / wait_between)
-	for i in range(iter):
+	it = int(duration // wait_between)
+	for i in range(it):
 		# Make the back the next color
 		augment_hue()
 		front = deepcopy(back)
@@ -185,7 +185,7 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 			draw_led.draw_exclamation(start * FULL_LETTER, message_color, front)
 		elif letter == '.':
 			draw_led.draw_period(start * FULL_LETTER, message_color, front)
-		elif letter == '+':http://192.168.1.54
+		elif letter == '+':
 			draw_led.draw_theta(start * FULL_LETTER, message_color, front)
 		elif letter == '=':
 			draw_led.draw_tau(start * FULL_LETTER, message_color, front)
@@ -272,7 +272,7 @@ def augment_hue():
 	global pos
 
 	hue = 0
-	if pos < 85:http://192.168.1.54
+	if pos < 85:
 		hue = Adafruit_WS2801.RGB_to_color(pos * 3, 255 - pos, 0)
 	elif pos < 170:
 		hue = Adafruit_WS2801.RGB_to_color(255 - (pos - 85) * 3, 0, (pos - 85) * 3)
@@ -298,8 +298,8 @@ if __name__ == "__main__":
 	pixels.clear()
 	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.09)
 
-	# Display a rainbow display on the front for 5 seconds.
-	rainbow_front(pixels)
+	# Display a rainbow display on the front for 10 seconds.
+	rainbow_front(pixels, wait_between=0.005, duration=10)
 	
 	no_ip = True
 
