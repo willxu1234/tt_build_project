@@ -86,6 +86,19 @@ def draw_scrolling(pixels, rainbow=True, wait=0.5):
 		draw_matrices(pixels, start)
 		time.sleep(wait)
 
+# Paints the front of the matrix with the rainbow of the back.
+# wait_between is the seconds between each rendering.
+# duration is the total amount of the time for this display to be up.
+def rainbow_front(pixels, wait_between=0.03, duration=5):
+	global front
+	it = int(duration // wait_between)
+	for i in range(it):
+		# Make the back the next color
+		augment_hue()
+		front = deepcopy(back)
+		draw_matrices(pixels, 0)
+		time.sleep(wait_between)
+
 # Static display of Theta Tau letters
 def draw_letters(pixels, color, background_color, wait=0.5):
 		global front
@@ -220,26 +233,26 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 			draw_led.draw_ht_mid(start * FULL_LETTER, front)
 		elif letter == '|':
 			draw_led.draw_ht_right(start * FULL_LETTER, front)
-		elif letter == 'a': 
-			draw_led.draw_plant_left(start * FULL_LETTER, front) 
-		elif letter == 'c': 
-			draw_led.draw_plant_right(start * FULL_LETTER, front) 
-		elif letter == 'm': 
+		elif letter == 'a':
+			draw_led.draw_plant_left(start * FULL_LETTER, front)
+		elif letter == 'c':
+			draw_led.draw_plant_right(start * FULL_LETTER, front)
+		elif letter == 'm':
 			draw_led.draw_dna_left(start * FULL_LETTER, front)
 		elif letter == 'g':
-			draw_led.draw_dna_right(start * FULL_LETTER, front) 
+			draw_led.draw_dna_right(start * FULL_LETTER, front)
 		elif letter == 'i':
 			draw_led.draw_build_left(start * FULL_LETTER, front)
-		elif letter == 'k': 
-			draw_led.draw_build_right(start * FULL_LETTER, front) 
-		elif letter == 'b': 
+		elif letter == 'k':
+			draw_led.draw_build_right(start * FULL_LETTER, front)
+		elif letter == 'b':
 			draw_led.draw_rocket(start * FULL_LETTER, front)
 		elif letter == 'd':
-			draw_led.draw_rocket2(start * FULL_LETTER, front) 
+			draw_led.draw_rocket2(start * FULL_LETTER, front)
 		elif letter == 'f':
 			draw_led.draw_potion(start * FULL_LETTER, front)
-		elif letter == 'h': 
-			draw_led.draw_potion2(start * FULL_LETTER, front) 
+		elif letter == 'h':
+			draw_led.draw_potion2(start * FULL_LETTER, front)
 		elif letter == 'o':
 			draw_led.draw_zero(start * FULL_LETTER, LIGHT_GREEN, front)
 		elif letter == 'l':
@@ -257,7 +270,7 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 def augment_hue():
 	global back
 	global pos
-	
+
 	hue = 0
 	if pos < 85:
 		hue = Adafruit_WS2801.RGB_to_color(pos * 3, 255 - pos, 0)
@@ -282,8 +295,12 @@ def one_side(pixels):
 	pixels.show()
 
 if __name__ == "__main__":
-	pixels.clear()	
+	pixels.clear()
 	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.09)
+
+	# Display a rainbow display on the front for 10 seconds.
+	rainbow_front(pixels, wait_between=0.005, duration=10)
+	
 	no_ip = True
 
 	while True:
