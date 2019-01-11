@@ -208,7 +208,7 @@ def augment_hue():
 
 	hue = 0
 	if pos < 85:
-		hue = Adafruit_WS2801.RGB_to_color(pos * 3, 255 - pos, 0)
+		hue = Adafruit_WS2801.RGB_to_color(pos * 3, 255 - pos * 3, 0)
 	elif pos < 170:
 		hue = Adafruit_WS2801.RGB_to_color(255 - (pos - 85) * 3, 0, (pos - 85) * 3)
 	else:
@@ -231,8 +231,6 @@ def one_side(pixels):
 
 if __name__ == "__main__":
 	pixels.clear()
-
-
 	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.15)
 
 	no_ip = True
@@ -274,6 +272,6 @@ if __name__ == "__main__":
 			draw_message(pixels, 'PROFESSIONALISM', LIGHT_RED, BLACK, True, 0.15)
 		elif value == 9:
 			# Display a rainbow display on the front for 10 seconds.
-			rainbow_front(pixels, wait_between=0.005, duration=5)
+			rainbow_front(pixels, wait_between=0.002, duration=5)
 		elif value == 10:		
 			draw_snake(pixels, DARK_RED, True)
