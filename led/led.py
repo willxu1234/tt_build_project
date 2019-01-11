@@ -60,7 +60,7 @@ def mat_to_pixel(row, col, back):
 
 # Takes the values in front and back and draws it to the LEDs.
 # start indicates the starting index of the sliding window used to draw front
-def draw_matrices(pixels, start=0):
+def draw_matrices(pixels, start=0, rainbow=False):
 	# Contains the pixel index.
 	pix = 0
 
@@ -74,7 +74,13 @@ def draw_matrices(pixels, start=0):
 			pixels.set_pixel(mat_to_pixel(row, col, True), back[row][col])
 	for row in range(PIXEL_ROW):
 		for col in range(start, PIXEL_COL + start):
-			pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
+			if rainbow:
+				if front[row][col] != BLACK:
+					pixels.set_pixel(mat_to_pixel(row, col - start, False), back[0][0])		
+				else:
+					pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
+			else:			
+				pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
 	pixels.show()
 
 # Scrolls across all of front with time wait in between renders.
@@ -83,7 +89,7 @@ def draw_scrolling(pixels, rainbow=True, wait=0.5):
 		# Paint the background if necessary.
 		if rainbow:
 			augment_hue()
-		draw_matrices(pixels, start)
+		draw_matrices(pixels, start, rainbow)
 		time.sleep(wait)
 
 # Paints the front of the matrix with the rainbow of the back.
@@ -131,6 +137,7 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 		# matrix that much bigger. Otherwise, just assume the maximum letter
 		# width.
 		if letter in draw_led.LETTER_WIDTHS:
+			#message_col_count += draw_led.LETTER_WIDTHS[letter] + 1
 			message_col_count += draw_led.LETTER_WIDTHS[letter]
 		else:
 			message_col_count += FULL_LETTER
@@ -160,7 +167,8 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 
 		index += 1
 		if letter in draw_led.LETTER_WIDTHS:
-			start += draw_led.LETTER_WIDTHS[letter]
+			#start += draw_led.LETTER_WIDTHS[letter] + 1
+			start += draw_led.LETTER_WIDTHS[letter] 
 		else:
 			start += FULL_LETTER
 
@@ -223,9 +231,9 @@ if __name__ == "__main__":
  			draw_message(pixels, "NOW ACCEPTING MATH CS AND DATA SCIENCE!", WHITE, BLACK, True, 0.15)
 		elif value == 3:
 			# Display sprites
-			draw_message(pixels, "ololacmgbdfh", DARK_RED, BLACK, True, 0.15)
+			draw_message(pixels, "ololacmgbdfh", DARK_RED, BLACK, False, 0.15)
 		elif value == 4:
-			draw_message(pixels, '<>();:|<>()', DARK_RED, BLACK, True, 0.15)
+			draw_message(pixels, '<>();:|<>()', DARK_RED, BLACK, False, 0.15)
 		elif value == 5:
 			draw_message(pixels, 'PROFESSIONAL ENGINEERING FRATERNITY', YELLOW, BLACK, True, 0.15)
 		elif value == 6:
@@ -238,4 +246,4 @@ if __name__ == "__main__":
 			draw_message(pixels, 'PROFESSIONALISM', LIGHT_RED, BLACK, True, 0.15)
 		elif value == 9:
 			# Display a rainbow display on the front for 10 seconds.
-			rainbow_front(pixels, wait_between=0.005, duration=10)
+			rainbow_front(pixels, wait_between=0.005, duration=5)

@@ -42,6 +42,9 @@ LETTER_WIDTHS = {
 	"7" : 4,
 	"8" : 4,
 	"9" : 4,
+	"o" : 4,
+	"l" : 4,
+	" " : 4,
 }
 
 # Assumes that the height is 7 and width of each letter is 5. Adds the word to the matrix at start.
