@@ -311,7 +311,6 @@ def initiation():
 		draw_message(pixels, '<>WILL XU()', DARK_RED, BLACK, True, 0.15)
 		draw_message(pixels, '<>ESTHER ZHAO()', DARK_RED, BLACK, True, 0.15)
 		draw_message(pixels, 'THANK YOU FOR COMING!', DARK_RED, BLACK, True, 0.15)
-		draw_snake(pixels, DARK_RED, True)
 
 if __name__ == "__main__":
 	initiation()
