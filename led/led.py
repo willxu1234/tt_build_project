@@ -89,13 +89,14 @@ def draw_scrolling(pixels, rainbow=True, wait=0.5):
 # Paints the front of the matrix with the rainbow of the back.
 # wait_between is the seconds between each rendering.
 # duration is the total amount of the time for this display to be up.
-def rainbow_front(pixels, wait_between=0.03, duration=5):
+def rainbow_front(pixels, wait_between=0.03, duration=1):
 	global front
 	it = int(duration // wait_between)
+	print(duration / wait_between)
+	print(duration // wait_between)
 	for i in range(it):
-		# Make the back the next color
+		# Change front's hue
 		augment_hue()
-		front = deepcopy(back)
 		draw_matrices(pixels, 0)
 		time.sleep(wait_between)
 
@@ -268,7 +269,7 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 
 # Sets the back color to the next hue in the rainbow.
 def augment_hue():
-	global back
+	global front
 	global pos
 
 	hue = 0
@@ -281,7 +282,7 @@ def augment_hue():
 
 	for row in range(PIXEL_ROW):
 		for col in range(PIXEL_COL):
-			back[row][col] = hue
+			front[row][col] = hue
 
 	pos = (pos + 1) % 255
 
@@ -299,7 +300,8 @@ if __name__ == "__main__":
 	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.09)
 
 	# Display a rainbow display on the front for 10 seconds.
-	rainbow_front(pixels, wait_between=0.005, duration=10)
+	rainbow_front(pixels, wait_between=0..005, duration=3)
+
 	
 	no_ip = True
 
