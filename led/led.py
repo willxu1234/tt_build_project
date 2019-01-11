@@ -280,7 +280,6 @@ def rush():
 # Call this for Tau pledge class intiation displays!
 def initiation():
 	pixels.clear()
-	draw_message(pixels, "WELCOME TO INITIATION!", YELLOW, BLACK, True, 0.15)
 
 	no_ip = True
 	while True:
@@ -295,6 +294,7 @@ def initiation():
 				# No ip address found yet
 				pass
 
+		draw_message(pixels, "WELCOME TO INITIATION!", YELLOW, BLACK, True, 0.15)
 		draw_message(pixels, '<>CONGRATS TO THE TAU PLEDGE CLASS()', DARK_RED, BLACK, False, 0.15)
 		draw_message(pixels, 'PLEDGES', DARK_RED, BLACK, False, 0.15)
 		draw_message(pixels, '<>HEATHER GAN()', DARK_RED, BLACK, True, 0.15)
