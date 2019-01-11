@@ -32,6 +32,16 @@ LETTER_WIDTHS = {
 	" " : 4,
 	"!" : 2,
 	"." : 2,
+	"0" : 4,
+	"1" : 4,
+	"2" : 4,
+	"3" : 4,
+	"4" : 4,
+	"5" : 4,
+	"6" : 4,
+	"7" : 4,
+	"8" : 4,
+	"9" : 4,
 }
 
 # Assumes that the height is 7 and width of each letter is 5. Adds the word to the matrix at start.
@@ -316,26 +326,21 @@ def draw_period(start, color, front):
 
 def draw_zero(start, color, front):
 	for row in range(3, 8):
-		 front[row][start + 1] = color
-		 front[row][start + 5] = color
+		 front[row][start] = color
+		 front[row][start + 2] = color
 
-	for col in range(start + 2, start + 5):
-		front[2][col] = color
-		front[8][col] = color
-
-	front[6][start + 2] = color
-	front[5][start + 3] = color
-	front[4][start + 4] = color
+	front[2][start + 1] = color
+	front[8][start + 1] = color
 
 def draw_bin_zero(start, color, front):
 	draw_zero(start, LIGHT_GREEN, front)
 
 def draw_one(start, color, front):
-	front[3][start + 2] = color
+	front[3][start] = color
 	for row in range(2, 8):
-		front[row][start + 3] = color
+		front[row][start + 1] = color
 
-	for col in range(start + 2, start + 5):
+	for col in range(start, start + 3):
 		front[8][col] = color
 
 def draw_bin_one(start, color, front):
@@ -343,97 +348,97 @@ def draw_bin_one(start, color, front):
 
 def draw_two(start, color, front):
 	for row in range(2, 6):
-		front[row][start + 5] = color
-	front[8][start + 5] = color
+		front[row][start + 2] = color
+	front[8][start + 2] = color
 
-	for col in range(start + 2, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
+	front[2][start + 1] = color
+	front[5][start + 1] = color
+	front[8][start + 1] = color
+
+	front[2][start] = color
 
 	for row in range(6, 9):
-		front[row][start + 1] = color
+		front[row][start] = color
 
 def draw_three(start, color, front):
 	for row in range(2, 9):
-		front[row][start + 5] = color
+		front[row][start + 2] = color
 
-	for col in range(start + 2, start + 6):
+	for col in range(start, start + 2):
 		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
 
 def draw_four(start, color, front):
 	for row in range(2, 6):
-		front[row][start + 1] = color
+		front[row][start] = color
 
 	for row in range(2, 9):
-		front[row][start + 5] = color
+		front[row][start + 2] = color
 
-	for col in range(start + 2, start + 5):
-		front[5][col] = color
+	front[5][start + 1] = color
 
 def draw_five(start, color, front):
-	for col in range(start + 1, start + 6):
+	for col in range(start, start + 3):
 		front[2][col] = color
 
 	for row in range(3, 6):
-		front[row][start + 1] = color
+		front[row][start] = color
 
-	for col in range(start + 2, start + 6):
-		front[5][col] = color
-
-	for col in range(start + 2, start + 5):
-		front[8][col] = color
-	front[7][start + 1] = color
-
-	for row in range(5, 8):
-		front[row][start + 5] = color
-
-def draw_six(start, color, front):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
-		front[5][col] = color
-		front[8][col] = color
-
-	for row in range(2, 8):
-		front[row][start + 1] = color
-
-	for row in range(6, 8):
-		front[row][start + 5] = color
-
-def draw_seven(start, color, front):
-	for col in range(start + 1, start + 6):
-		front[2][col] = color
+	front[5][start + 1] = color
+	front[5][start + 2] = color
 
 	front[8][start + 1] = color
-	front[7][start + 1] = color
-	front[6][start + 2] = color
-	front[5][start + 3] = color
-	front[4][start + 4] = color
-	front[3][start + 5] = color
 
-def draw_eight(start, color, front):
-	for col in range(start + 1, start + 6):
+	front[7][start] = color
+
+	for row in range(5, 8):
+		front[row][start + 2] = color
+
+def draw_six(start, color, front):
+	for col in range(start, start + 3):
 		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
 
 	for row in range(2, 8):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
+		front[row][start] = color
+
+	for row in range(6, 8):
+		front[row][start + 2] = color
+
+def draw_seven(start, color, front):
+	for col in range(start, start + 3):
+		front[2][col] = color
+
+	front[3][start + 2] = color
+	front[4][start + 2] = color
+
+	front[5][start + 1] = color
+
+	for row in range(6, 9):
+		front[row][start] = color
+
+def draw_eight(start, color, front):
+	front[2][start + 1] = color
+	front[5][start + 1] = color
+	front[8][start + 1] = color
+
+	for row in range(2, 9):
+		front[row][start] = color
+		front[row][start + 2] = color
 
 def draw_nine(start, color, front):
-	for col in range(start + 1, start + 6):
+	for col in range(start, start + 3):
 		front[2][col] = color
 		front[5][col] = color
 		front[8][col] = color
 
 	for row in range(2, 6):
-		front[row][start + 1] = color
+		front[row][start] = color
 
 	for row in range(2, 8):
-		front[row][start + 5] = color
+		front[row][start + 2] = color
 
 def draw_theta(start, color, front):
 	# column 1
