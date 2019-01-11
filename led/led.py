@@ -124,7 +124,8 @@ def draw_letters(pixels, color, background_color, wait=0.5):
 # will be sweep through the rainbow colors.
 def draw_message(pixels, message, message_color, background_color, rainbow=True, wait=0.5):
 	# message_col_count = FULL_LETTER * len(message)
-	message_col_count = 0
+	# initialize message_col_count to FULL_LETTER so that letters show up on the right
+	message_col_count = FULL_LETTER
 	for letter in message:
 		# If the letter is in the hashmap defined in draw_led, make the front
 		# matrix that much bigger. Otherwise, just assume the maximum letter
@@ -142,9 +143,12 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 			for c in range(message_col_count + 2 * PIXEL_COL):
 				row.append(background_color)
 
+
 	# index of the current letter
 	index = 0
+	start = FULL_LETTER
 	while index < len(message) and start < message_col_count:
+		letter = message[index]
 		if letter == ' ':
 			# Draw a full space.
 			pass
@@ -192,10 +196,8 @@ def one_side(pixels):
 
 if __name__ == "__main__":
 	pixels.clear()
-	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.09)
+	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.15)
 
-	# Display a rainbow display on the front for 10 seconds.
-	rainbow_front(pixels, wait_between=0.005, duration=10)
 
 	no_ip = True
 
@@ -205,32 +207,35 @@ if __name__ == "__main__":
 				ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
 				socket.inet_aton(ip)
 				no_ip = False
-				draw_message(pixels, "IP FOUND. ", YELLOW, BLACK, True, 0.05)
+				draw_message(pixels, "IP FOUND. ", YELLOW, BLACK, True, 0.15)
 				draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
 			except socket.error:
 				# No ip address found yet
 				pass
-		value = random.randint(0,8)
+		value = random.randint(0,9)
 		# += are reserved chars for Theta Tau symbols
 		if value == 0:
-			draw_message(pixels, '<>RUSH +=()', DARK_RED, BLACK, True, 0.09)
+			draw_message(pixels, '<>RUSH +=()', DARK_RED, BLACK, True, 0.15)
 		elif value == 1:
-			draw_message(pixels, 'e^', YELLOW, BLACK, True, 0.09)
-			draw_message(pixels, 'CHAPTER', DARK_RED, BLACK, True, 0.09)
+			draw_message(pixels, 'e^', YELLOW, BLACK, True, 0.15)
+			draw_message(pixels, 'CHAPTER', DARK_RED, BLACK, True, 0.15)
 		elif value == 2:
- 			draw_message(pixels, "NOW ACCEPTING MATH CS AND DATA SCIENCE!", WHITE, BLACK, True, 0.09)
+ 			draw_message(pixels, "NOW ACCEPTING MATH CS AND DATA SCIENCE!", WHITE, BLACK, True, 0.15)
 		elif value == 3:
 			# Display sprites
-			draw_message(pixels, "ololacmgbdfh", DARK_RED, BLACK, True, 0.09)
+			draw_message(pixels, "ololacmgbdfh", DARK_RED, BLACK, True, 0.15)
 		elif value == 4:
-			draw_message(pixels, '<>();:|<>()', DARK_RED, BLACK, True, 0.09)
+			draw_message(pixels, '<>();:|<>()', DARK_RED, BLACK, True, 0.15)
 		elif value == 5:
-			draw_message(pixels, 'PROFESSIONAL ENGINEERING FRATERNITY', YELLOW, BLACK, True, 0.09)
+			draw_message(pixels, 'PROFESSIONAL ENGINEERING FRATERNITY', YELLOW, BLACK, True, 0.15)
 		elif value == 6:
-			draw_message(pixels, 'COME CHECK US OUT AT RUSH!', DARK_RED, BLACK, True, 0.09)
+			draw_message(pixels, 'COME CHECK US OUT AT RUSH!', DARK_RED, BLACK, True, 0.15)
 		elif value == 7:
-			draw_message(pixels, 'MEET THE BROTHERS!', YELLOW, BLACK, True, 0.09)
+			draw_message(pixels, 'MEET THE BROTHERS!', YELLOW, BLACK, True, 0.15)
 		elif value == 8:
-			draw_message(pixels, 'BROTHERHOOD', YELLOW, BLACK, True, 0.09)
-			draw_message(pixels, 'PHILANTHROPY', LIGHT_GREEN, BLACK, True, 0.09)
-			draw_message(pixels, 'PROFESSIONALISM', LIGHT_RED, BLACK, True, 0.09)
+			draw_message(pixels, 'BROTHERHOOD', YELLOW, BLACK, True, 0.15)
+			draw_message(pixels, 'PHILANTHROPY', LIGHT_GREEN, BLACK, True, 0.15)
+			draw_message(pixels, 'PROFESSIONALISM', LIGHT_RED, BLACK, True, 0.15)
+		elif value == 9:
+			# Display a rainbow display on the front for 10 seconds.
+			rainbow_front(pixels, wait_between=0.005, duration=10)

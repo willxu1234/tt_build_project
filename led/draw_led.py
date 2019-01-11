@@ -148,11 +148,11 @@ def draw_K(start, color, front):
 
 def draw_M(start, color, front):
 	for row in range(2,9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
-	front[3][start + 2] = color
-	front[4][start + 3] = color
-	front[3][start + 4] = color
+		front[row][start] = color
+		front[row][start + 4] = color
+	front[3][start + 1] = color
+	front[4][start + 2] = color
+	front[3][start + 3] = color
 
 def draw_O(start, color, front):
 	for row in range(2,9):
@@ -163,21 +163,21 @@ def draw_O(start, color, front):
 	front[8][start + 1] = color
 
 def draw_V(start, color, front):
-	for row in range(2,7):
+	for row in range(2,8):
 		front[row][start] = color
 		front[row][start + 2] = color
 
 	front[8][start + 1] = color
 
 def draw_Z(start, color, front):
-	for num in range(1,6):
+	for num in range(0,5):
 		front[2][start + num] = color
 		front[8][start + num] = color
-	front[3][start + 5] = color
-	front[4][start + 4] = color
-	front[5][start + 3] = color
-	front[6][start + 2] = color
-	front[7][start + 1] = color
+	front[3][start + 4] = color
+	front[4][start + 3] = color
+	front[5][start + 2] = color
+	front[6][start + 1] = color
+	front[7][start] = color
 
 
 def draw_C(start, color, front):
@@ -238,12 +238,12 @@ def draw_Y(start,color, front):
 
 def draw_W(start,color, front):
 	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
+		front[row][start] = color
+		front[row][start + 4] = color
 
-	front[6][start + 2] = color
-	front[6][start + 4] = color
-	front[5][start + 3] = color
+	front[6][start + 1] = color
+	front[6][start + 3] = color
+	front[5][start + 2] = color
 
 def draw_T(start, color, front):
 	for row in range(2, 9):
@@ -265,18 +265,18 @@ def draw_P(start, color, front):
 
 def draw_N(start, color, front):
 	for row in range(2, 9):
-		front[row][start + 1] = color
-		front[row][start + 5] = color
+		front[row][start] = color
+		front[row][start + 4] = color
 
-	front[4][start + 2] = color
-	front[5][start + 3] = color
-	front[6][start + 4] = color
+	front[4][start + 1] = color
+	front[5][start + 2] = color
+	front[6][start + 3] = color
 
 def draw_L(start, color, front):
 	for row in range(2, 9):
 		front[row][start] = color
 
-	for col in range(start + 2, start + 6):
+	for col in range(start + 1, start + 3):
 		front[8][col] = color
 
 def draw_X(start, color, front):
@@ -292,19 +292,19 @@ def draw_X(start, color, front):
 
 def draw_Q(start, color, front):
 	for row in range(3, 8):
-		front[row][start + 1] = color
+		front[row][start] = color
 
-	for col in range(start + 2, start + 5):
+	for col in range(start + 1, start + 4):
 		front[2][col] = color
 
 	for row in range(3, 7):
-		front[row][start + 5] = color
+		front[row][start + 4] = color
 
+	front[8][start + 1] = color
 	front[8][start + 2] = color
-	front[8][start + 3] = color
-	front[6][start + 3] = color
-	front[7][start + 4] = color
-	front[8][start + 5] = color
+	front[6][start + 2] = color
+	front[7][start + 3] = color
+	front[8][start + 4] = color
 
 def draw_J(start, color, front):
 	for col in range(start, start + 3):
