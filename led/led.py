@@ -144,7 +144,7 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 
 	# index of the current letter
 	index = 0
-	while start < message_col_count:
+	while index < len(message) and start < message_col_count:
 		if letter == ' ':
 			# Draw a full space.
 			pass
