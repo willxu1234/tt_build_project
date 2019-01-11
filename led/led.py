@@ -76,10 +76,10 @@ def draw_matrices(pixels, start=0, rainbow=False):
 		for col in range(start, PIXEL_COL + start):
 			if rainbow:
 				if front[row][col] != BLACK:
-					pixels.set_pixel(mat_to_pixel(row, col - start, False), back[0][0])		
+					pixels.set_pixel(mat_to_pixel(row, col - start, False), back[0][0])
 				else:
 					pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
-			else:			
+			else:
 				pixels.set_pixel(mat_to_pixel(row, col - start, False), front[row][col])
 	pixels.show()
 
@@ -117,7 +117,7 @@ def draw_snake(pixels, color, rainbow=True, wait=0.08):
 				augment_hue()
 			draw_matrices(pixels, 0, rainbow)
 			time.sleep(wait)
-	
+
 
 # Paints the front of the matrix with the rainbow of the back.
 # wait_between is the seconds between each rendering.
@@ -195,7 +195,7 @@ def draw_message(pixels, message, message_color, background_color, rainbow=True,
 		index += 1
 		if letter in draw_led.LETTER_WIDTHS:
 			#start += draw_led.LETTER_WIDTHS[letter] + 1
-			start += draw_led.LETTER_WIDTHS[letter] 
+			start += draw_led.LETTER_WIDTHS[letter]
 		else:
 			start += FULL_LETTER
 
@@ -229,7 +229,8 @@ def one_side(pixels):
 			pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color(128, 0, 0))
 	pixels.show()
 
-if __name__ == "__main__":
+# Call this for rush displays!
+def rush():
 	pixels.clear()
 	draw_message(pixels, "WELCOME!", YELLOW, BLACK, True, 0.15)
 
@@ -273,5 +274,44 @@ if __name__ == "__main__":
 		elif value == 9:
 			# Display a rainbow display on the front for 10 seconds.
 			rainbow_front(pixels, wait_between=0.002, duration=5)
-		elif value == 10:		
+		elif value == 10:
 			draw_snake(pixels, DARK_RED, True)
+
+# Call this for Tau pledge class intiation displays!
+def initiation():
+	pixels.clear()
+	draw_message(pixels, "WELCOME TO INITIATION!", YELLOW, BLACK, True, 0.15)
+
+	no_ip = True
+	while True:
+		if no_ip:
+			try:
+				ip = subprocess.check_output(["hostname", "-I"]).split(' ')[0]
+				socket.inet_aton(ip)
+				no_ip = False
+				draw_message(pixels, "IP FOUND. ", YELLOW, BLACK, True, 0.15)
+				draw_message(pixels, ip, LIGHT_GREEN, BLACK, True, 0.2)
+			except socket.error:
+				# No ip address found yet
+				pass
+
+		draw_message(pixels, '<> CONGRATS TO THE TAU PLEDGE CLASS ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, 'PLEDGES:', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> HEATHER GAN ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> KYLE GILLASPY ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> RICK HUYNH ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> KAMRAN JAHADI ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> DARREN JIAN ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> EVERETT LIN ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> NEHA PUSARLA ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> RAEEK RAHMAN ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> JONATHAN SONG ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> AJ TAN ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> BRITNEY TRAN ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> WILL XU ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, '<> ESTHER ZHAO ()', DARK_RED, BLACK, False, 0.15)
+		draw_message(pixels, 'THANK YOU FOR COMING!', DARK_RED, BLACK, False, 0.15)
+		draw_snake(pixels, DARK_RED, True)
+
+if __name__ == "__main__":
+	initiation()
