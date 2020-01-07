@@ -3,12 +3,13 @@ tt_build_project
 Includes all the software for the Theta Tau build project
 
 Software team:
-Will Xu
-Esther Zhao
-Neha Pusarla
-Rick Huynh
-Kyle Gillaspy
-Heather Gan
+Will Xu 
+Esther Zhao 
+Neha Pusarla 
+Rick Huynh 
+Kyle Gillaspy 
+Heather Gan 
+Britney Tran 
 
 ## How to use:
 The script will run automatically upon startup of the Raspberry pi. To stop, run:
